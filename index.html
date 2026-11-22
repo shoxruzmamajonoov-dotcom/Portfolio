@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Shoxruz Mamadzhanov — Director · Producer. Musiqiy kliplar, snippetlar, loyihalar va backstage.">
+<title>Shoxruz Mamadzhanov</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: print-studio sheet. Cool grey ground, crosshair registration marks, one tall red bar behind each title, work dealt out as rounded cards. Single light look by choice. */
+:root{
+  --ground:#e3e3e1;
+  --ink:#141414;
+  --soft:#6b6b68;
+  --line:#c9c9c6;
+  --card:#f7f7f5;
+  --red:#e2533c;
+  --display:"Archivo","Arial Black",Impact,sans-serif;
+  --text:"Instrument Sans","Helvetica Neue",Arial,sans-serif;
+  --gut:max(16px,env(safe-area-inset-left,0px));
+  --gut-r:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--ground);color:var(--ink);font-family:var(--text);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+video,img{display:block;max-width:100%}
+.wrap{padding-left:max(var(--gut),4vw);padding-right:max(var(--gut-r),4vw);max-width:1360px;margin:0 auto}
+.lab{font:700 11px var(--display);font-stretch:118%;letter-spacing:.06em;text-transform:uppercase}
+
+/* nav */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ground)}
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--ground) 86%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:52px;gap:16px}
+.nav ul{display:flex;gap:clamp(12px,2.4vw,30px);list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
+.nav ul a{display:block;padding:6px 0;color:var(--soft);transition:color .2s}
+.nav ul a:hover,.nav ul a:focus-visible{color:var(--ink)}
+.nav .mark{display:flex;align-items:center;gap:10px}
+.nav .mark i{width:10px;height:22px;background:var(--red);display:block}
+@media (max-width:560px){.nav .mark span{display:none}}
+
+/* sheet = title block with registration marks */
+.sheet{position:relative;overflow-x:clip;padding:clamp(30px,5vw,56px) clamp(12px,3vw,44px)}
+.x{position:absolute;width:13px;height:13px;pointer-events:none}
+.x::before,.x::after{content:"";position:absolute;background:var(--ink)}
+.x::before{left:6px;top:0;width:1px;height:13px}.x::after{top:6px;left:0;height:1px;width:13px}
+.x.tl{left:0;top:0}.x.tr{right:0;top:0}.x.bl{left:0;bottom:0}.x.br{right:0;bottom:0}
+.tri{position:absolute;top:50%;width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;transform:translateY(-50%)}
+.tri.l{left:22px;border-left:8px solid var(--ink)}.tri.r{right:22px;border-right:8px solid var(--ink)}
+@media (max-width:640px){.tri{display:none}}
+.sheet .row{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;position:relative;z-index:2}
+.sheet .row.b{align-items:flex-end;margin-top:clamp(18px,3vw,34px)}
+.sheet .small{font-size:12px;line-height:1.25;font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.sheet .badge{width:30px;height:30px;border:1.5px solid var(--ink);border-radius:8px;display:grid;place-items:center}
+.sheet .badge::before{content:"";width:12px;height:12px;border:1.5px solid var(--ink);border-radius:50%}
+
+.title{position:relative;display:grid;place-items:center;margin-top:clamp(10px,2vw,24px);min-height:clamp(100px,17vw,240px)}
+.title .bar{position:absolute;left:50%;top:50%;width:clamp(70px,12vw,170px);height:150%;transform:translate(-50%,-50%);background:var(--red)}
+.title h1,.title h2{position:relative;margin:0;font-family:var(--display);font-weight:900;font-stretch:125%;text-transform:uppercase;letter-spacing:-.035em;line-height:.86;text-align:center}
+.title h1{font-size:clamp(46px,12vw,182px)}
+.title h2{font-size:clamp(40px,9.6vw,150px)}
+.title .echo{position:absolute;left:0;right:0;top:50%;text-align:center;font-family:var(--display);font-weight:900;font-stretch:125%;text-transform:uppercase;letter-spacing:-.035em;line-height:.86;color:transparent;-webkit-text-stroke:1.2px var(--ink);opacity:.45;pointer-events:none;user-select:none}
+.title .echo.e1{transform:translate(-2%,-112%) scaleY(.5) skewX(-14deg)}
+.title .echo.e2{transform:translate(2%,30%) scaleY(-.45) skewX(10deg);opacity:.3}
+.title h2.foot{font-size:clamp(28px,7.2vw,112px)}
+.grid.g3{grid-template-columns:repeat(3,minmax(0,1fr));max-width:980px;margin:0 auto}
+@media (max-width:640px){.grid.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.title .echo.h1{font-size:clamp(46px,12vw,182px)}
+.title .echo.h2{font-size:clamp(40px,9.6vw,150px)}
+
+/* the deck: fanned cards */
+.deck{position:relative;height:clamp(250px,36vw,460px);margin-top:clamp(18px,3vw,40px);overflow-x:clip}
+.deck .card{position:absolute;left:50%;top:6%;width:clamp(118px,16vw,224px);transform-origin:50% 170%;transform:translateX(-50%) rotate(var(--a));transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+.deck .card:hover,.deck .card:focus-visible{transform:translateX(-50%) rotate(var(--a)) translateY(-28px);z-index:20!important}
+.deck .card .meta{display:none}
+@media (max-width:640px){.deck .card{width:31vw}}
+.ring{width:clamp(130px,15vw,190px);margin:-10px auto 0;color:var(--ink);position:relative}
+.ring svg{display:block;width:100%;height:auto}
+.ring .spin{animation:spin 28s linear infinite;transform-origin:100px 100px}
+.ring text{font:700 11.5px var(--display);letter-spacing:.3em;fill:currentColor}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* cards */
+.card{display:block;position:relative;background:var(--card);border-radius:18px;padding:8px;border:0;font:inherit;color:inherit;text-align:left;cursor:pointer;width:100%;box-shadow:0 1px 0 rgba(0,0,0,.04),0 14px 30px rgba(20,20,20,.14);transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s}
+.card .frame{position:relative;aspect-ratio:3/4;overflow:hidden;border-radius:11px;background:#1a1a1a}
+.card.tall .frame{aspect-ratio:9/16}
+.card img,.card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card video{opacity:0;transition:opacity .5s}.card video.on{opacity:1}
+.card .meta{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;padding:12px 6px 6px}
+.card .meta b{display:block;font-family:var(--display);font-weight:800;font-stretch:118%;font-size:clamp(14px,1.25vw,18px);line-height:1.1;text-transform:uppercase;letter-spacing:-.01em}
+.card .meta span{display:block;color:var(--soft);font-size:12.5px;margin-top:3px}
+.card .meta i{font-style:normal;font:700 10px var(--display);font-stretch:118%;color:var(--soft);letter-spacing:.06em;text-transform:uppercase}
+.card .corner{position:absolute;top:14px;left:14px;z-index:2;font:800 11px var(--display);font-stretch:118%;color:#fff;letter-spacing:.06em;text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.card .play{position:absolute;z-index:2;right:14px;bottom:14px;width:40px;height:40px;border-radius:12px;background:var(--red);display:grid;place-items:center;opacity:0;transform:translateY(6px);transition:.3s}
+.card .play::before{content:"";border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+.card:hover .play,.card:focus-visible .play{opacity:1;transform:none}
+@media (hover:none){.card .play{opacity:1;transform:none}}
+.card:focus-visible{outline:2px solid var(--red);outline-offset:4px}
+
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,2.2vw,30px)}
+.grid .card{transform:rotate(var(--r,0deg))}
+.grid .card:hover,.grid .card:focus-visible{transform:rotate(0deg) translateY(-8px);box-shadow:0 26px 50px rgba(20,20,20,.22)}
+@media (max-width:980px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.grid.g6{grid-template-columns:repeat(6,minmax(0,1fr))}
+@media (max-width:980px){.grid.g6{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+.sec{padding-block:clamp(50px,7vw,96px)}
+.sub{display:flex;align-items:center;gap:14px;margin:clamp(36px,5vw,64px) 0 22px}
+.sub::after{content:"";flex:1;height:1px;background:var(--ink)}
+.sub .lab{font-size:13px}
+.sub .lab em{font-style:normal;color:var(--red)}
+
+/* playing cards for Sayro releases */
+.pc{display:flex;flex-direction:column;justify-content:space-between;gap:14px;min-height:100%;aspect-ratio:5/7;border-radius:18px;padding:16px;background:var(--card);color:var(--ink);box-shadow:0 14px 30px rgba(20,20,20,.14);transform:rotate(var(--r,0deg));transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s;position:relative;overflow:hidden}
+.pc.red{background:var(--red);color:#fff}
+.pc.blk{background:var(--ink);color:#f2f2f0}
+.pc:hover,.pc:focus-visible{transform:rotate(0) translateY(-8px);box-shadow:0 26px 50px rgba(20,20,20,.24)}
+.pc:focus-visible{outline:2px solid var(--ink);outline-offset:4px}
+.pc .top,.pc .bot{display:flex;justify-content:space-between;align-items:flex-start;font:800 11px var(--display);font-stretch:118%;letter-spacing:.06em;text-transform:uppercase}
+.pc .bot{transform:rotate(180deg)}
+.pc .mid{display:grid;gap:10px;justify-items:center;text-align:center}
+.pc{border:0;font:inherit;cursor:pointer;text-align:left;width:100%}
+.pc .mid{width:100%}
+.pc .thumb{position:relative;width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;background:#000}
+.pc .thumb img{width:100%;height:100%;object-fit:cover}
+.pc .thumb .play{position:absolute;left:50%;top:50%;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:12px;background:var(--red);display:grid;place-items:center}
+.pc.red .thumb .play{background:var(--ink)}
+.pc .thumb .play::before{content:"";border-left:12px solid #fff;border-top:8px solid transparent;border-bottom:8px solid transparent;margin-left:3px}
+.pc .mid svg{width:42%;max-width:90px;height:auto;fill:none;stroke:currentColor;stroke-width:5}
+.pc .mid b{font-family:var(--display);font-weight:900;font-stretch:118%;font-size:clamp(16px,1.6vw,23px);line-height:1;text-transform:uppercase;letter-spacing:-.01em}
+.pc .mid span{font-size:12.5px;opacity:.75}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(24px,5vw,80px);align-items:start}
+@media (max-width:820px){.about{grid-template-columns:1fr}}
+.about .lead{font-family:var(--display);font-weight:800;font-stretch:112%;font-size:clamp(24px,2.8vw,40px);line-height:1.12;letter-spacing:-.015em;margin:0;text-wrap:balance}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.facts div{background:var(--card);border-radius:18px;padding:20px;box-shadow:0 10px 24px rgba(20,20,20,.1)}
+.facts div:first-child{background:var(--red);color:#fff}
+.facts b{display:block;font-family:var(--display);font-weight:900;font-stretch:125%;font-size:clamp(40px,4.6vw,66px);line-height:1;font-variant-numeric:tabular-nums}
+.facts span{display:block;margin-top:10px;font:700 11px var(--display);font-stretch:118%;letter-spacing:.08em;text-transform:uppercase}
+.names{list-style:none;margin:22px 0 0;padding:0;border-top:1px solid var(--ink)}
+.names li{display:flex;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid var(--line);font-weight:600}
+.names li small{color:var(--soft);font-weight:500}
+
+footer{padding-block:clamp(40px,6vw,80px) 30px}
+footer .end{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;color:var(--soft);font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-top:28px}
+
+/* lightbox */
+.ytw{width:min(100%,1100px,calc((100svh - 140px)*16/9));aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000}
+.ytw iframe{width:100%;height:100%;border:0;display:block}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(20,20,20,.94);display:grid;place-items:center;padding:calc(env(safe-area-inset-top,0px) + 60px) var(--gut-r) calc(env(safe-area-inset-bottom,0px) + 24px) var(--gut)}
+.lb[hidden]{display:none!important}
+.lb video{max-height:calc(100svh - 120px);max-width:min(100%,1000px);border-radius:14px;background:#000}
+.lb .xbtn{position:absolute;top:calc(env(safe-area-inset-top,0px) + 14px);right:max(16px,env(safe-area-inset-right,0px));background:var(--card);border:0;color:var(--ink);font:800 11px var(--display);font-stretch:118%;letter-spacing:.1em;text-transform:uppercase;padding:11px 18px;border-radius:12px;cursor:pointer}
+.lb .t{position:absolute;left:var(--gut);top:calc(env(safe-area-inset-top,0px) + 24px);color:#f2f2f0;font:800 13px var(--display);font-stretch:118%;text-transform:uppercase}
+.lb .t span{color:#9b9b97;font-weight:600;margin-left:10px;font-family:var(--text);text-transform:none}
+
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ring .spin{animation:none}.card,.pc,.deck .card{transition:none}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="mark lab" href="#top"><i></i><span>Shoxruz Mamadzhanov</span></a>
+    <ul class="lab">
+      <li><a href="#clip">Clip</a></li>
+      <li><a href="#snippet">Snippet</a></li>
+      <li><a href="#project">Project</a></li>
+      <li><a href="#backstage">Backstage</a></li>
+      <li><a href="#haqida">Haqida</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="wrap" id="top" style="padding-top:clamp(20px,3vw,40px)">
+  <div class="sheet">
+    <span class="x tl"></span><span class="x tr"></span><span class="x bl"></span><span class="x br"></span>
+    <span class="tri l"></span><span class="tri r"></span>
+    <div class="row"><span class="lab" style="font-size:clamp(12px,1.3vw,17px);line-height:1.1">Director<br>Producer</span><span class="badge" aria-hidden="true"></span></div>
+    <div class="title">
+      <span class="bar" aria-hidden="true"></span>
+      <span class="echo e1 h1" aria-hidden="true">Shoxruz</span>
+      <h1>Shoxruz</h1>
+      <span class="echo e2 h1" aria-hidden="true">Shoxruz</span>
+    </div>
+    <div class="row b"><span class="small">Mamadzhanov</span><span class="small">Musiqiy kliplar</span></div>
+  </div>
+  <div class="deck" id="deck" aria-label="Kliplar"></div>
+  <div class="ring" aria-hidden="true">
+    <svg viewBox="0 0 200 200"><defs><path id="cp" d="M100,100 m-80,0 a80,80 0 1,1 160,0 a80,80 0 1,1 -160,0"/></defs><g class="spin"><text><textPath href="#cp">PORTFOLIO · SHOXRUZ · PORTFOLIO · SHOXRUZ · </textPath></text></g><path d="M100 82 l8 13 h-16z" fill="currentColor"/><text x="100" y="116" text-anchor="middle" style="letter-spacing:.12em;font-size:14px">CLIP</text></svg>
+  </div>
+</section>
+
+<div id="chapters"></div>
+
+<section class="sec wrap" id="haqida">
+  <div class="sheet" style="margin-bottom:clamp(30px,4vw,50px)">
+    <span class="x tl"></span><span class="x tr"></span><span class="x bl"></span><span class="x br"></span>
+    <div class="row"><span class="lab">05</span><span class="lab"></span></div>
+    <div class="title"><span class="bar" aria-hidden="true"></span><span class="echo e1 h2" aria-hidden="true">Haqida</span><h2>Haqida</h2></div>
+  </div>
+  <div class="about">
+    <div>
+      <p class="lead">Shoxruz Mamadzhanov. Musiqiy kliplar rejissyori va prodyuseri.</p>
+      <ul class="names" id="names"></ul>
+    </div>
+    <div class="facts">
+      <div><b>15+</b><span>Musiqiy klip</span></div>
+      <div><b id="fArt"></b><span>Ijrochi</span></div>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="sheet">
+    <span class="x tl"></span><span class="x tr"></span><span class="x bl"></span><span class="x br"></span>
+    <div class="title"><span class="bar" aria-hidden="true"></span><h2 class="foot">Mamadzhanov</h2></div>
+  </div>
+  <div class="end"><span>Shoxruz Mamadzhanov · Director · Producer</span><span>© 2026</span></div>
+</footer>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Video">
+  <div class="t" id="lbT"></div>
+  <button class="xbtn" id="lbX" type="button">Yopish</button>
+  <video id="lbV" controls playsinline></video>
+  <div class="ytw" id="ytw" hidden><iframe id="ytf" title="YouTube video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+</div>
+
+<script>
+/* ---- DATA ----  yangi ish = ro'yxatga bitta qator */
+const YT=id=>id; /* YouTube video ID */
+const CLIPS=[
+ {a:"Jasmin",t:"Naxori Nashta",n:"02",yt:YT("SPAuOFmT5WU"),bts:[1,2,3,4,5,6]},
+ {a:"G'aybulla Tursunov & Jasmin",t:"Istayman",n:"07",yt:YT("-mAHrkAxVw8")},
+ {a:"G'aybulla Tursunov",t:"Kelmadi",n:"09",yt:YT("m8L46enT6kE")},
+ {a:"Gulyora",t:"Menday qizni",n:"04",yt:YT("wLBPql4ouzo")},
+ {a:"Gulyora",t:"Sensiz",n:"05",yt:YT("uavG5tUv3Yg")},
+ {a:"Askarov Toxir",t:"Kuz",n:"08",yt:YT("AkTEkgZe81Q")},
+ {a:"Cuba",t:"Ey hayot",n:"06",yt:YT("IyTQTsj8Wnc")}
+];
+const SNIPPETS=[
+ {a:"Jasmin",t:"Rejissyor va uning ishi",r:"r1"},
+ {a:"Jasmin",t:"Bitta kadr uchun 7 kun",r:"r2"},
+ {a:"Jasmin",t:"Reja · Set · Natija",r:"r4"},
+ {a:"G'aybulla Tursunov",t:"Quralay",p:"m/c03.jpg",l:"m/c03.mp4",f:"m/c03_full.mp4",shape:""}
+];
+const SAYRO={channel:"https://www.youtube.com/@Sayro_project",items:[
+ {a:"G'aybulla Tursunov & Jasmin",t:"Keraksan",id:"KlvraqaCsMY"},
+ {a:"Gulyora",t:"Hamon seni sevaman",id:"uFEdfTRWKMs"},
+ {a:"Bilol",t:"Balla",id:"6aS1W0_v7PA"},
+ {a:"Gulyora",t:"Unutolsam",id:"3UrF-eezAhE"},
+ {a:"Bilol",t:"Sevgimiz",id:"yCXzOAJE23I"},
+ {a:"Askarov Toxir",t:"Unuta olaman",id:"HQ8lhNbJU6M"}]};
+
+const pad=n=>String(n).padStart(2,'0');
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+const tilt=k=>[-1.6,1.2,-.8,1.8,-1.3,.9,-2,1.4][k%8];
+const src=c=>c.n?{poster:`m/c${c.n}.jpg`,loop:`m/c${c.n}.mp4`,full:`m/c${c.n}_full.mp4`}:c.r?{poster:`m/${c.r}.jpg`,loop:`m/${c.r}.mp4`,full:`m/${c.r}.mp4`}:{poster:c.p,loop:c.l,full:c.f};
+function card(o){
+  const b=el('button','card'+(o.shape?' '+o.shape:''));b.type='button';
+  b.style.setProperty('--r',tilt(o.k||0)+'deg');
+  b.innerHTML=`<div class="frame"><img src="${o.poster}" alt=""><video data-src="${o.loop}" muted loop playsinline preload="none"></video><span class="corner">${o.idx||''}</span><span class="play" aria-hidden="true"></span></div><div class="meta"><div><b></b><span></span></div><i></i></div>`;
+  b.querySelector('b').textContent=o.title;b.querySelector('.meta span').textContent=o.sub||'';
+  b.setAttribute('aria-label',`${o.title}${o.sub?', '+o.sub:''}`);
+  b.addEventListener('click',()=>o.yt?openYT(o.yt,o.title,o.sub):openLB(o.full,o.title,o.sub));
+  return b;
+}
+const btsGrid=ids=>{const g=el('div','grid g6');ids.forEach((i,k)=>{const c=el('div','card tall',`<div class="frame"><img src="m/b${i}.jpg" alt="Sahna ortidan kadr"><video data-src="m/b${i}.mp4" muted loop playsinline preload="none"></video><span class="corner">${pad(k+1)}</span></div>`);c.style.setProperty('--r',tilt(k+2)+'deg');c.style.cursor='default';g.appendChild(c)});return g};
+const sheet=(num,name,count)=>el('div','sheet',`<span class="x tl"></span><span class="x tr"></span><span class="x bl"></span><span class="x br"></span><div class="row"><span class="lab">${num}</span><span class="lab">${count!=null?pad(count):''}</span></div><div class="title"><span class="bar" aria-hidden="true"></span><span class="echo e1 h2" aria-hidden="true">${name}</span><h2>${name}</h2></div>`);
+const groupBy=a=>a.reduce((m,x)=>((m[x.a]=m[x.a]||[]).push(x),m),{});
+
+/* hero deck */
+const deck=document.getElementById('deck');const N=CLIPS.length;
+CLIPS.forEach((c,i)=>{const d=i-(N-1)/2;const k=card({...src(c),title:c.t,sub:c.a,idx:'',yt:c.yt,k:i});k.style.setProperty('--a',(d*11)+'deg');k.style.zIndex=10-Math.round(Math.abs(d));deck.appendChild(k)});
+
+const ch=document.getElementById('chapters');
+const mk=(id,num,name,count)=>{const s=el('section','sec wrap');s.id=id;s.appendChild(sheet(num,name,count));ch.appendChild(s);return s};
+
+/* clip */
+{const s=mk('clip','01','Clip',CLIPS.length);const g=el('div','grid');g.style.marginTop='clamp(30px,4vw,50px)';
+ CLIPS.forEach((c,i)=>g.appendChild(card({...src(c),title:c.t,sub:c.a,idx:pad(i+1),yt:c.yt,k:i})));s.appendChild(g);
+ CLIPS.filter(c=>c.bts).forEach(c=>{s.appendChild(el('div','sub',`<span class="lab">Backstage <em>· ${c.t}</em></span>`));s.appendChild(btsGrid(c.bts))});}
+/* snippet */
+{const s=mk('snippet','02','Snippet');Object.entries(groupBy(SNIPPETS)).forEach(([a,list])=>{const h=el('div','sub','<span class="lab"></span>');h.firstChild.textContent=a;s.appendChild(h);
+ const g=el('div','grid');list.forEach((x,i)=>g.appendChild(card({...src(x),title:x.t,sub:a,idx:pad(i+1),shape:x.shape??'tall',k:i+1})));s.appendChild(g)});}
+/* project */
+{const s=mk('project','03','Project',SAYRO.items.length);s.appendChild(el('div','sub','<span class="lab">Sayro <em>· YouTube</em></span>'));
+ const g=el('div','grid g3');const kinds=['red','','blk','','red','blk'];
+ SAYRO.items.forEach((it,i)=>{const a=el('button','pc '+kinds[i%6]);a.type='button';a.addEventListener('click',()=>openYT(it.id,it.t,it.a));a.style.setProperty('--r',tilt(i+3)+'deg');
+  a.innerHTML=`<div class="top"><span>${pad(i+1)}</span><span>Sayro</span></div><div class="mid"><div class="thumb"><img src="https://i.ytimg.com/vi/${it.id}/maxresdefault.jpg" alt="" loading="lazy"><span class="play" aria-hidden="true"></span></div><b></b><span></span></div><div class="bot"><span>${pad(i+1)}</span><span>Sayro</span></div>`;
+  a.querySelector('.mid b').textContent=it.t;a.querySelector('.mid span').textContent=it.a;a.setAttribute('aria-label',`${it.t}, ${it.a}`);g.appendChild(a)});
+ s.appendChild(g);}
+/* backstage */
+{const B=CLIPS.filter(c=>c.bts);const s=mk('backstage','04','Backstage',B.length);B.forEach(c=>{const h=el('div','sub','<span class="lab"></span>');h.firstChild.textContent=`${c.a} · ${c.t}`;s.appendChild(h);s.appendChild(btsGrid(c.bts))});}
+
+/* about */
+const artists=[...new Set(CLIPS.flatMap(c=>c.a.split(' & ')).concat(SNIPPETS.map(x=>x.a)))];
+document.getElementById('fArt').textContent=artists.length;
+const nm=document.getElementById('names');
+artists.forEach(a=>{const n=CLIPS.filter(c=>c.a.split(' & ').includes(a)).length;const li=el('li','','<span></span><small></small>');li.firstChild.textContent=a;li.lastChild.textContent=n?n+' klip':'snippet';nm.appendChild(li)});
+
+/* loops play while visible */
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src)v.src=v.dataset.src;const p=v.play();if(p)p.then(()=>v.classList.add('on')).catch(()=>{})}else v.pause()}),{rootMargin:'120px'});
+document.querySelectorAll('video[data-src]').forEach(v=>vio.observe(v));
+
+/* lightbox */
+const lb=document.getElementById('lb'),lbV=document.getElementById('lbV'),lbT=document.getElementById('lbT');let last=null;
+function title(t,sub){lbT.textContent=t;if(sub){const sp=document.createElement('span');sp.textContent=sub;lbT.appendChild(sp)}}
+const ytw=document.getElementById('ytw'),ytf=document.getElementById('ytf');
+function openYT(id,t,sub){last=document.activeElement;title(t,sub);lbV.hidden=true;ytw.hidden=false;ytf.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lbX').focus()}
+function openLB(s,t,sub){last=document.activeElement;ytw.hidden=true;lbV.hidden=false;lbT.textContent=t;if(sub){const sp=document.createElement('span');sp.textContent=sub;lbT.appendChild(sp)}lbV.src=s;lb.hidden=false;document.body.style.overflow='hidden';lbV.play().catch(()=>{});document.getElementById('lbX').focus()}
+function closeLB(){ytf.src='about:blank';lbV.pause();lbV.removeAttribute('src');lbV.load();lb.hidden=true;document.body.style.overflow='';if(last)last.focus()}
+document.getElementById('lbX').onclick=closeLB;lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.hidden)closeLB()});
+</script>
+</body>
+</html>
