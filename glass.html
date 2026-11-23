@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Shoxruz Mamadzhanov</title>
+<meta name="description" content="Shoxruz Mamadzhanov — Director · Producer.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--glass:rgba(255,255,255,.12);--glass2:rgba(255,255,255,.2);--edge:rgba(255,255,255,.28);--txt:#fff;--mute:rgba(255,255,255,.66);--cw:clamp(200px,24vw,330px)}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{height:100%;overflow:hidden;background:#1a1714;color:var(--txt);font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.gl{background:var(--glass);backdrop-filter:blur(24px) saturate(1.4);-webkit-backdrop-filter:blur(24px) saturate(1.4);border:1px solid var(--edge);box-shadow:0 10px 40px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.25)}
+/* background */
+#bg{position:fixed;inset:-40px;z-index:0}
+#bg img{position:absolute;inset:0;filter:blur(38px) brightness(.55) saturate(1.1);transform:scale(1.15);opacity:0;transition:opacity 1s ease}
+#bg img.on{opacity:1}
+#bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 30%,rgba(0,0,0,.55) 100%),linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,0) 30%,rgba(0,0,0,.35))}
+/* top bar */
+.top{position:fixed;top:0;left:0;right:0;z-index:10;display:grid;grid-template-columns:44px 1fr 44px;align-items:center;padding:max(18px,env(safe-area-inset-top)) clamp(16px,3vw,36px) 0}
+.circ{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-size:15px}
+.circ.sm{font-size:11px;font-weight:700;letter-spacing:.04em}
+.ttl{text-align:center}
+.ttl h1{font-size:clamp(20px,2vw,26px);font-weight:600;letter-spacing:-.01em}
+.ttl p{font-size:11px;color:var(--mute);margin-top:3px;letter-spacing:.04em}
+/* side bar */
+.side{position:fixed;z-index:10;left:clamp(14px,3vw,40px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;padding:8px;border-radius:30px}
+.side button{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;position:relative;transition:background .25s}
+.side button svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;opacity:.8}
+.side button[aria-current=true]{background:var(--glass2)}
+.side button[aria-current=true] svg{opacity:1}
+.side button span{position:absolute;left:54px;top:50%;transform:translate(-6px,-50%);white-space:nowrap;font-size:12px;padding:6px 10px;border-radius:12px;background:rgba(30,30,30,.6);backdrop-filter:blur(12px);opacity:0;pointer-events:none;transition:.2s}
+.side button:hover span{opacity:1;transform:translate(0,-50%)}
+/* stage */
+#stage{position:fixed;inset:0;z-index:5;perspective:1400px;touch-action:pan-y}
+.card{position:absolute;left:50%;top:50%;width:var(--cw);aspect-ratio:3/4.2;margin-left:calc(var(--cw)/-2);transform-origin:50% 50%;border-radius:26px;overflow:hidden;transition:transform .7s cubic-bezier(.2,.75,.2,1),opacity .6s,filter .6s;will-change:transform;padding:0;border:1px solid var(--edge);box-shadow:0 30px 70px rgba(0,0,0,.45);background:#222}
+.card img,.card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.18) 0%,rgba(0,0,0,0) 28%,rgba(0,0,0,0) 52%,rgba(0,0,0,.72) 100%);pointer-events:none}
+.card .ct{position:absolute;top:14px;right:14px;z-index:2;font-size:11px;font-weight:600;padding:5px 9px;border-radius:99px;background:rgba(255,255,255,.18);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.25)}
+.card .lb{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;text-align:left}
+.card .lb b{display:block;font-size:clamp(18px,1.9vw,26px);font-weight:600;letter-spacing:-.015em;line-height:1.1;text-shadow:0 2px 14px rgba(0,0,0,.4)}
+.card .lb small{display:block;margin-top:5px;font-size:12px;color:rgba(255,255,255,.75)}
+.card.side-c .lb b{font-size:clamp(14px,1.3vw,18px)}
+.card .pl{position:absolute;left:50%;top:44%;z-index:2;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;display:grid;place-items:center;opacity:0;transform:scale(.8);transition:.35s}
+.card .pl::before{content:"";border-left:15px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
+.card.cur:hover .pl{opacity:1;transform:none}
+.card.cur.static{cursor:default}
+/* bottom chips */
+.bot{position:fixed;left:0;right:0;bottom:max(22px,env(safe-area-inset-bottom));z-index:10;display:flex;flex-direction:column;align-items:center;gap:10px;padding:0 16px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:min(900px,100%)}
+.chip{display:flex;align-items:center;gap:7px;padding:8px 14px;border-radius:99px;font-size:12px;font-weight:500;white-space:nowrap}
+.chip svg{width:14px;height:14px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.chip.act{background:rgba(255,255,255,.88);color:#111;border-color:#fff}
+.chip.act svg{stroke:#111}
+.filt{display:flex;gap:6px;overflow-x:auto;max-width:min(900px,100%);padding:2px;scrollbar-width:none}
+.filt::-webkit-scrollbar{display:none}
+.filt button{flex:0 0 auto;padding:7px 12px;border-radius:99px;font-size:11.5px;color:var(--mute)}
+.filt button[aria-pressed=true]{background:var(--glass2);color:#fff;border:1px solid var(--edge)}
+.arr{position:fixed;top:50%;z-index:9;width:44px;height:44px;margin-top:-22px;border-radius:50%;display:grid;place-items:center;font-size:16px}
+.arr.l{left:max(130px,calc(50% - var(--cw)/2 - 440px))}.arr.r{right:max(130px,calc(50% - var(--cw)/2 - 440px))}
+/* about panel */
+#about{position:fixed;inset:0;z-index:6;display:grid;place-items:center;padding:90px 16px 110px;pointer-events:none;opacity:0;transition:opacity .5s}
+#about.on{opacity:1;pointer-events:auto}
+.pan{width:min(620px,100%);border-radius:30px;padding:clamp(22px,4vw,40px)}
+.pan .big{font-size:clamp(56px,8vw,96px);font-weight:600;letter-spacing:-.04em;line-height:.9}
+.pan .big small{display:block;font-size:14px;font-weight:400;letter-spacing:0;color:var(--mute);margin-top:10px;line-height:1.4}
+.pan .rows{margin-top:24px}
+.pan .rows div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-top:1px solid rgba(255,255,255,.16);font-size:14px}
+.pan .rows span{color:var(--mute)}
+.pan .rows b{font-weight:500;text-align:right}
+/* player */
+#pv{position:fixed;inset:0;z-index:30;display:grid;place-items:center;padding:70px 16px 24px;background:rgba(10,10,10,.45);backdrop-filter:blur(30px);-webkit-backdrop-filter:blur(30px)}
+#pv[hidden]{display:none}
+#pv .fr{width:min(1100px,100%);aspect-ratio:16/9;border-radius:24px;overflow:hidden;border:1px solid var(--edge);background:#000;box-shadow:0 40px 100px rgba(0,0,0,.5)}
+#pv .fr.v{width:min(400px,100%);aspect-ratio:auto;height:min(760px,calc(100vh - 110px));background:#fff}
+#pv iframe{width:100%;height:100%;border:0;display:block}
+#pvX{position:fixed;top:max(18px,env(safe-area-inset-top));right:clamp(16px,3vw,36px)}
+#pvT{position:fixed;top:max(26px,env(safe-area-inset-top));left:0;right:0;text-align:center;font-size:14px;font-weight:600;pointer-events:none}
+#pvT span{display:block;font-size:11px;font-weight:400;color:var(--mute);margin-top:3px}
+@media(max-width:760px){
+ :root{--cw:62vw}
+ .side{top:auto;bottom:max(18px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);flex-direction:row;padding:6px}
+ .side button{width:40px;height:40px}.side button span{display:none}
+ .bot{bottom:calc(max(18px,env(safe-area-inset-bottom)) + 66px)}
+ .arr{display:none}
+ .chip{padding:7px 11px;font-size:11px}
+ .card{aspect-ratio:3/4.4}
+}
+@media(max-height:640px) and (min-width:761px){:root{--cw:clamp(180px,20vw,260px)}}
+@media(prefers-reduced-motion:reduce){.card,#bg img{transition:none}}
+</style>
+</head>
+<body>
+<div id="bg"></div>
+<header class="top">
+ <a class="circ gl" href="index.html" aria-label="Asosiy sayt">‹</a>
+ <div class="ttl"><h1 id="tH">Clip</h1><p id="tP"></p></div>
+ <a class="circ gl sm" href="#haqida" aria-label="Haqida" id="me">SM</a>
+</header>
+<nav class="side gl" id="side" aria-label="Bo'limlar"></nav>
+<div id="stage" aria-live="polite"></div>
+<button class="arr l gl" id="aL" type="button" aria-label="Oldingi">←</button>
+<button class="arr r gl" id="aR" type="button" aria-label="Keyingi">→</button>
+<div id="about"></div>
+<div class="bot"><div class="filt" id="filt" hidden></div><div class="chips" id="chips"></div></div>
+<div id="pv" hidden role="dialog" aria-modal="true"><div id="pvT"></div><button class="circ gl" id="pvX" type="button" aria-label="Yopish">✕</button><div class="fr" id="fr"></div></div>
+
+<script>document.write('<script src="data.js?'+Date.now()+'"><\/script>')</script>
+<script>
+const pad=n=>String(n).padStart(2,'0');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+const yt=id=>`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+const I={
+ clip:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9.5v5l4.5-2.5z"/></svg>',
+ snippet:'<svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 10v4l3-2z"/></svg>',
+ project:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="1.5"/><rect x="13" y="4" width="8" height="7" rx="1.5"/><rect x="3" y="13" width="8" height="7" rx="1.5"/><rect x="13" y="13" width="8" height="7" rx="1.5"/></svg>',
+ backstage:'<svg viewBox="0 0 24 24"><path d="M4 8h12v10H4z"/><path d="M16 11l4-2.5v9L16 15"/><circle cx="7" cy="5" r="2"/><circle cx="12" cy="5" r="2"/></svg>',
+ haqida:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>',
+ cal:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+ eye:'<svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>',
+ user:'<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>',
+ play:'<svg viewBox="0 0 24 24"><path d="M7 5v14l12-7z"/></svg>',
+ film:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 8h4M3 16h4M17 8h4M17 16h4"/></svg>'
+};
+const artists=[...new Set(CLIPS.flatMap(c=>c.a.split(' & ')).concat(SNIPPETS.map(x=>x.a)))];
+const BTS=CLIPS.filter(c=>c.bts).flatMap(c=>c.bts.map((i,k)=>({img:`m/b${i}.jpg`,vid:`m/b${i}.mp4`,t:'Backstage '+pad(k+1),a:c.t+' · '+c.a})));
+const snSorted=a=>SNIPPETS.filter(x=>a==='Barchasi'||x.a===a).slice().sort((x,y)=>(y.d||'').localeCompare(x.d||''));
+const SEC={
+ clip:{n:'Clip',sub:()=>`${CLIPS.length} ta musiqiy klip`,items:()=>CLIPS.map(c=>({img:yt(c.yt),t:c.t,a:c.a,chips:[[I.user,c.a],[I.cal,sana(c.d)],[I.film,'Director · Producer']],open:()=>openYT(c.yt,c.t,c.a)}))},
+ snippet:{n:'Snippet',sub:()=>`${SNIPPETS.length} ta reels`,items:()=>snSorted(snA).map(x=>({img:`m/ig/${x.ig}.webp`,t:x.t,a:x.a,chips:[[I.user,x.a],[I.cal,sana(x.d)],[I.eye,x.v||'']],open:()=>openIG(x.ig,x.t,x.a)}))},
+ project:{n:'Sayro Project',sub:()=>`${SAYRO.length} epizod · YouTube`,items:()=>SAYRO.map(p=>({img:yt(p.id),t:p.t,a:'Episode '+pad(p.e)+' · '+p.a,chips:[[I.film,'Episode '+pad(p.e)],[I.user,p.a],[I.film,'Sayro']],open:()=>openYT(p.id,p.t,p.a)}))},
+ backstage:{n:'Backstage',sub:()=>'Sahna ortidan',items:()=>BTS.map(b=>({...b,chips:[[I.film,b.a]]}))},
+ haqida:{n:'Haqida',sub:()=>'Director · Producer'}
+};
+let snA='Barchasi',cur='clip',idx=0,list=[];
+/* side */
+const side=document.getElementById('side');
+Object.entries(SEC).forEach(([k,s])=>{const b=el('button','',`${I[k]}<span>${s.n}</span>`);b.type='button';b.dataset.k=k;b.setAttribute('aria-label',s.n);b.onclick=()=>{location.hash=k};side.appendChild(b)});
+/* bg */
+const bg=document.getElementById('bg');let bgCur=null;
+function setBg(src){if(bgCur&&bgCur.dataset.s===src)return;const im=new Image();im.dataset.s=src;im.src=src;im.alt='';bg.appendChild(im);im.onload=()=>{requestAnimationFrame(()=>im.classList.add('on'));const old=bgCur;bgCur=im;if(old){old.classList.remove('on');setTimeout(()=>old.remove(),1100)}}}
+/* stage */
+const stage=document.getElementById('stage'),chips=document.getElementById('chips'),filt=document.getElementById('filt'),about=document.getElementById('about');
+let nodes=new Map();
+const vw=()=>innerWidth<=760;
+function render(){
+ const W=stage.querySelector('.card')?.offsetWidth||Math.min(330,innerWidth*.24);
+ const keep=new Set();
+ for(let d=-3;d<=3;d++){const i=idx+d;if(i<0||i>=list.length)continue;keep.add(i);
+  let c=nodes.get(i);
+  if(!c){const it=list[i];c=el(it.open?'button':'div','card');if(it.open)c.type='button';
+   c.innerHTML=`<img src="${it.img}" alt="" loading="lazy">${it.vid?`<video src="${it.vid}" muted loop playsinline autoplay preload="metadata"></video>`:''}<span class="ct">${i+1} / ${list.length}</span><span class="pl gl"></span><span class="lb"><b>${esc(it.t)}</b><small>${esc(it.a||'')}</small></span>`;
+   if(!it.open)c.classList.add('static');
+   c.addEventListener('click',()=>{if(drag.moved)return;const j=+c.dataset.i;if(j!==idx){go(j);return}const o=list[j].open;if(o)o()});
+   c.dataset.i=i;c.style.opacity=0;stage.appendChild(c);nodes.set(i,c);c.offsetWidth}
+  const a=Math.abs(d),sx=vw()?.56:.66,x=d*W*sx*(1-a*.06)+(d?Math.sign(d)*W*.1:0);
+  c.style.transform=`translate3d(${x}px,-50%,${-a*120}px) scale(${1-a*.15}) rotateY(${-d*4}deg)`;
+  c.style.opacity=a>2?0:1-a*.12;c.style.zIndex=10-a;c.style.filter=a?`brightness(${1-a*.16})`:'none';
+  c.classList.toggle('cur',!d);c.classList.toggle('side-c',!!d);c.tabIndex=d?-1:0;
+  const v=c.querySelector('video');if(v){a<=1?v.play().catch(()=>{}):v.pause()}}
+ nodes.forEach((c,i)=>{if(!keep.has(i)){c.remove();nodes.delete(i)}});
+ const it=list[idx];if(!it)return;setBg(it.img);
+ chips.innerHTML='';(it.chips||[]).filter(x=>x[1]).forEach(([ic,tx])=>chips.appendChild(el('span','chip gl',ic+esc(tx))));
+ if(it.open){const b=el('button','chip gl act',I.play+'Ko‘rish');b.type='button';b.onclick=it.open;chips.appendChild(b)}
+}
+function go(i){idx=Math.max(0,Math.min(list.length-1,i));render()}
+function load(k){
+ if(!SEC[k])k='clip';cur=k;const s=SEC[k];
+ document.getElementById('tH').textContent=s.n;document.getElementById('tP').textContent=s.sub();
+ side.querySelectorAll('button').forEach(b=>b.setAttribute('aria-current',b.dataset.k===k));
+ nodes.forEach(c=>c.remove());nodes.clear();
+ const isA=k==='haqida';about.classList.toggle('on',isA);stage.hidden=isA;document.getElementById('aL').hidden=document.getElementById('aR').hidden=isA;
+ filt.hidden=k!=='snippet';
+ if(isA){chips.innerHTML='';list=[];setBg(yt(CLIPS[0].yt));return}
+ list=s.items();idx=0;render()
+}
+/* snippet filter */
+['Barchasi',...new Set(SNIPPETS.map(x=>x.a))].forEach(a=>{const b=el('button','',esc(a));b.type='button';b.setAttribute('aria-pressed',a===snA);b.onclick=()=>{snA=a;filt.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));load('snippet')};filt.appendChild(b)});
+/* about */
+about.innerHTML=`<div class="pan gl"><div class="big">15+<small>musiqiy klip — rejissyor va prodyuser sifatida</small></div><div class="rows">
+<div><span>Ism</span><b>Shoxruz Mamadzhanov</b></div><div><span>Rol</span><b>Director · Producer</b></div><div><span>Ijrochilar</span><b>${artists.map(esc).join(', ')}</b></div><div><span>Loyiha</span><b>Sayro</b></div><div><span>Telefon</span><b><a href="tel:+998942377572">+998 94 237 75 72</a></b></div><div><span>Instagram</span><b><a href="https://www.instagram.com/shvxrvz/" target="_blank" rel="noopener">@shvxrvz</a></b></div></div></div>`;
+/* controls */
+document.getElementById('aL').onclick=()=>go(idx-1);document.getElementById('aR').onclick=()=>go(idx+1);
+addEventListener('keydown',e=>{if(!pv.hidden){if(e.key==='Escape')closePV();return}if(e.key==='ArrowLeft')go(idx-1);if(e.key==='ArrowRight')go(idx+1);if(e.key==='Enter'&&list[idx]?.open)list[idx].open()});
+let wl=0;stage.addEventListener('wheel',e=>{const d=Math.abs(e.deltaX)>Math.abs(e.deltaY)?e.deltaX:e.deltaY;const n=Date.now();if(Math.abs(d)<8||n-wl<380)return;wl=n;go(idx+(d>0?1:-1));e.preventDefault()},{passive:false});
+const drag={x:0,on:false,moved:false};
+stage.addEventListener('pointerdown',e=>{drag.on=true;drag.x=e.clientX;drag.moved=false});
+addEventListener('pointermove',e=>{if(drag.on&&Math.abs(e.clientX-drag.x)>8)drag.moved=true});
+addEventListener('pointerup',e=>{if(!drag.on)return;drag.on=false;const dx=e.clientX-drag.x;if(Math.abs(dx)>40){go(idx+(dx<0?1:-1));setTimeout(()=>drag.moved=false,50)}else drag.moved=false});
+addEventListener('resize',render);
+addEventListener('hashchange',()=>load(location.hash.slice(1)));
+/* player */
+const pv=document.getElementById('pv'),fr=document.getElementById('fr'),pvT=document.getElementById('pvT');
+function showPV(t,a,html,v){pvT.innerHTML=esc(t)+`<span>${esc(a||'')}</span>`;fr.className='fr'+(v?' v':'');fr.innerHTML=html;pv.hidden=false;document.getElementById('pvX').focus()}
+function openYT(id,t,a){showPV(t,a,`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${esc(t)}"></iframe>`)}
+function openIG(id,t,a){showPV(t,a,`<iframe src="https://www.instagram.com/reel/${id}/embed/" allow="autoplay; encrypted-media" title="${esc(t)}"></iframe>`,1)}
+function closePV(){fr.innerHTML='';pv.hidden=true}
+document.getElementById('pvX').onclick=closePV;pv.addEventListener('click',e=>{if(e.target===pv)closePV()});
+load(location.hash.slice(1)||'clip');
+</script>
+</body>
+</html>
