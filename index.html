@@ -263,12 +263,12 @@ const SNIPPETS=[
  {a:"Jasmin",t:"Reja · Set · Natija",p:"m/r4.jpg",l:"m/r4.mp4"}
 ];
 const SAYRO=[
- {a:"G'aybulla Tursunov & Jasmin",t:"Keraksan",id:"KlvraqaCsMY"},
- {a:"Gulyora",t:"Hamon seni sevaman",id:"uFEdfTRWKMs"},
- {a:"Bilol",t:"Balla",id:"6aS1W0_v7PA"},
- {a:"Gulyora",t:"Unutolsam",id:"3UrF-eezAhE"},
- {a:"Bilol",t:"Sevgimiz",id:"yCXzOAJE23I"},
- {a:"Askarov Toxir",t:"Unuta olaman",id:"HQ8lhNbJU6M"}];
+ {e:1,a:"Askarov Toxir",t:"Unuta olaman",id:"HQ8lhNbJU6M"},
+ {e:2,a:"Bilol",t:"Sevgimiz",id:"yCXzOAJE23I"},
+ {e:3,a:"Gulyora",t:"Unutolsam",id:"3UrF-eezAhE"},
+ {e:4,a:"G'aybulla Tursunov & Jasmin",t:"Keraksan",id:"KlvraqaCsMY"},
+ {e:5,a:"Bilol",t:"Balla",id:"6aS1W0_v7PA"},
+ {e:6,a:"Gulyora",t:"Hamon seni sevaman",id:"uFEdfTRWKMs"}];
 
 const pad=n=>String(n).padStart(2,'0');
 const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
@@ -321,7 +321,7 @@ const btsStrip=c=>{const g=el('div','strip');c.bts.forEach((i,k)=>g.appendChild(
   list.sort((x,y)=>(y.d||'').localeCompare(x.d||'')).forEach(x=>g.appendChild(vcard(x,()=>x.ig?openIG(x.ig,x.t,a):openLB(x.f||x.l,x.t,a))));s.appendChild(g)});}
 /* project */
 {const s=sec('project','Project','Sayro · YouTube loyiha');const g=el('div','pg');
- SAYRO.forEach((it,i)=>{const b=el('button','pc rv',`<div class="th"><img src="https://i.ytimg.com/vi/${it.id}/maxresdefault.jpg" alt="" loading="lazy"></div><div class="bd"><b>${esc(it.t)}</b><div class="rw"><span>(${pad(i+1)}) Ijrochi</span><span>${esc(it.a)}</span></div><div class="rw"><span>Loyiha</span><span>Sayro</span></div></div>`);
+ SAYRO.forEach((it,i)=>{const b=el('button','pc rv',`<div class="th"><img src="https://i.ytimg.com/vi/${it.id}/maxresdefault.jpg" alt="" loading="lazy"></div><div class="bd"><b>${esc(it.t)}</b><div class="rw"><span>(Ep ${pad(it.e)}) Ijrochi</span><span>${esc(it.a)}</span></div><div class="rw"><span>Loyiha</span><span>Sayro</span></div></div>`);
   b.type='button';b.addEventListener('click',()=>openYT(it.id,it.t,it.a));g.appendChild(b)});s.appendChild(g);}
 /* backstage */
 {const s=sec('backstage','Backstage','Sahna ortidan');CLIPS.filter(c=>c.bts).forEach(c=>{s.appendChild(el('div','grp',`<h3>${esc(c.a)} <em>·</em> ${esc(c.t)}</h3><span class="lab">${pad(c.bts.length)}</span>`));s.appendChild(btsStrip(c))});}
