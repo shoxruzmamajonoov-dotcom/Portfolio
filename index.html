@@ -204,22 +204,25 @@ footer .fl a:hover{color:var(--or)}
 
 <script>
 const CLIPS=[
- {a:"Jasmin",t:"Naxori Nashta",n:"02",yt:"SPAuOFmT5WU",bts:[1,2,3,4,5,6]},
- {a:"G'aybulla Tursunov & Jasmin",t:"Istayman",n:"07",yt:"-mAHrkAxVw8"},
- {a:"G'aybulla Tursunov",t:"Kelmadi",n:"09",yt:"m8L46enT6kE"},
- {a:"Gulyora",t:"Menday qizni",n:"04",yt:"wLBPql4ouzo"},
- {a:"Gulyora",t:"Sensiz",n:"05",yt:"uavG5tUv3Yg"},
- {a:"Askarov Toxir",t:"Kuz",n:"08",yt:"AkTEkgZe81Q"},
- {a:"Askarov Toxir",t:"Telbaday",yt:"oeAcAqxUhqU"},
- {a:"Cuba",t:"Ey hayot",n:"06",yt:"IyTQTsj8Wnc"},
- {a:"Cuba & Gulyora",t:"Kerak emas",yt:"heyvW5v-UMU"},
- {a:"August family",t:"Yangi yil 2026",yt:"Z5bkyuhczz0"},
- {a:"Jasmin",t:"Ketma",yt:"Ct73g8xSFSk"},
- {a:"G'aybulla Tursunov",t:"Komila",yt:"wwTShK05wzI"},
- {a:"Askarov Toxir",t:"Alam",yt:"nYuZ9C103xo"},
- {a:"Askarov Toxir",t:"Unutmam",yt:"6jP9p-j1ubI"},
- {a:"Askarov Toxir",t:"Sevaman",yt:"D4oSYfBZjIU"}
+ {a:"Jasmin",t:"Naxori Nashta",n:"02",yt:"SPAuOFmT5WU",d:"2026-07-24",bts:[1,2,3,4,5,6]},
+ {a:"G'aybulla Tursunov & Jasmin",t:"Istayman",n:"07",yt:"-mAHrkAxVw8",d:"2026-01-07"},
+ {a:"G'aybulla Tursunov",t:"Kelmadi",n:"09",yt:"m8L46enT6kE",d:"2026-02-27"},
+ {a:"Gulyora",t:"Menday qizni",n:"04",yt:"wLBPql4ouzo",d:"2026-08-14"},
+ {a:"Gulyora",t:"Sensiz",n:"05",yt:"uavG5tUv3Yg",d:"2026-10-03"},
+ {a:"Askarov Toxir",t:"Kuz",n:"08",yt:"AkTEkgZe81Q",d:"2025-11-23"},
+ {a:"Askarov Toxir",t:"Telbaday",yt:"oeAcAqxUhqU",d:"2025-11-05"},
+ {a:"Cuba",t:"Ey hayot",n:"06",yt:"IyTQTsj8Wnc",d:"2025-10-24"},
+ {a:"Cuba & Gulyora",t:"Kerak emas",yt:"heyvW5v-UMU",d:"2025-12-07"},
+ {a:"August family",t:"Yangi yil 2026",yt:"Z5bkyuhczz0",d:"2025-12-30"},
+ {a:"Jasmin",t:"Ketma",yt:"Ct73g8xSFSk",d:"2026-02-11"},
+ {a:"G'aybulla Tursunov",t:"Komila",yt:"wwTShK05wzI",d:"2026-04-28"},
+ {a:"Askarov Toxir",t:"Alam",yt:"nYuZ9C103xo",d:"2026-05-01"},
+ {a:"Askarov Toxir",t:"Unutmam",yt:"6jP9p-j1ubI",d:"2026-07-19"},
+ {a:"Askarov Toxir",t:"Sevaman",yt:"D4oSYfBZjIU",d:"2026-11-06"}
 ];
+CLIPS.sort((x,y)=>y.d.localeCompare(x.d)); // yangisi boshida
+const OY=["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr"];
+const sana=d=>{const[y,m]=d.split('-');return OY[+m-1]+' '+y};
 const SNIPPETS=[
  {a:"Jasmin",t:"Rejissyor va uning ishi",p:"m/r1.jpg",l:"m/r1.mp4"},
  {a:"Jasmin",t:"Bitta kadr uchun 7 kun",p:"m/r2.jpg",l:"m/r2.mp4"},
@@ -269,7 +272,7 @@ const btsStrip=c=>{const g=el('div','strip');c.bts.forEach((i,k)=>g.appendChild(
 {const s=sec('clip','Clip','Musiqiy kliplar · bosing, sayt ichida ochiladi');const R=el('div','rows');
  CLIPS.forEach((c,i)=>{const r=el('div','row');
   const t=el('button','tc',(c.n?`<img src="m/c${c.n}.jpg" alt=""><video data-src="m/c${c.n}.mp4" muted loop playsinline preload="none"></video>`:`<img src="https://i.ytimg.com/vi/${c.yt}/maxresdefault.jpg" alt="" loading="lazy">`)+`<span class="pl" aria-hidden="true"></span>`);t.type='button';t.setAttribute('aria-label',`${c.t}, ${c.a}`);t.addEventListener('click',()=>openYT(c.yt,c.t,c.a));
-  const inf=el('div','info rv',`<div class="n">(${pad(i+1)})</div><h4>${esc(c.t)}</h4><dl><dt>Ijrochi</dt><dd>${esc(c.a)}</dd><dt>Rol</dt><dd>Director · Producer</dd>${c.bts?'<dt>Backstage</dt><dd>Pastda ↓</dd>':''}</dl>`);
+  const inf=el('div','info rv',`<div class="n">(${pad(i+1)})</div><h4>${esc(c.t)}</h4><dl><dt>Ijrochi</dt><dd>${esc(c.a)}</dd><dt>Chiqqan</dt><dd>${sana(c.d)}</dd><dt>Rol</dt><dd>Director · Producer</dd>${c.bts?'<dt>Backstage</dt><dd>Pastda ↓</dd>':''}</dl>`);
   r.append(t,inf);R.appendChild(r);
   if(c.bts){const w=el('div');w.append(el('div','grp',`<h3>Backstage <em>·</em> ${esc(c.t)}</h3><span class="lab">${pad(c.bts.length)}</span>`),btsStrip(c));R.appendChild(w)}});
  s.appendChild(R);}
