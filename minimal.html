@@ -44,7 +44,7 @@ nav ul a{opacity:.85}nav ul a:hover{opacity:1;text-decoration:underline;text-und
 .card .im{position:relative;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:var(--card)}
 .g4 .card .im,.g3 .card .im{aspect-ratio:4/5}
 .card .im img,.card .im video{transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s}
-.card:hover .im img,.card:hover .im video{transform:scale(1.035)}
+button.card:hover .im img,button.card:hover .im video{transform:scale(1.035)}
 .card .im video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
 .card .im video.on{opacity:1}
 .tag{position:absolute;right:12px;bottom:12px;padding:5px 10px;border-radius:99px;background:var(--pill);color:#fff;font-size:10.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;backdrop-filter:blur(6px);white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis}
@@ -108,9 +108,9 @@ const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=nu
 const yt=id=>`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
 const main=document.getElementById('main');
 const sec=(id,title,desc,count)=>{const s=el('section');s.id=id;s.innerHTML=`<div class="sh"><h2 class="rv">${title}</h2><p class="rv">${desc}</p></div><div class="meta"><span>Items: <b>${count}</b></span></div>`;main.appendChild(s);return s};
-const card=({img,tag,sm,t,on,vid})=>{const b=el('button','card rv');b.type='button';
+const card=({img,tag,sm,t,on,vid})=>{const b=el(on?'button':'figure','card rv');if(on)b.type='button';
  b.innerHTML=`<div class="im"><img src="${img}" alt="" loading="lazy">${vid?`<video data-src="${vid}" muted loop playsinline preload="none"></video>`:''}${tag?`<span class="tag">${esc(tag)}</span>`:''}</div><div class="sm">${esc(sm||'')}</div><h3>${esc(t)}</h3>`;
- b.addEventListener('click',on);return b};
+ if(on)b.addEventListener('click',on);return b};
 
 /* CLIP */
 {const s=sec('clip','Clips','Musiqiy kliplar. Rejissyor va prodyuser sifatida, yangisi birinchi.',pad(CLIPS.length));const g=el('div','grid');
@@ -132,8 +132,8 @@ const card=({img,tag,sm,t,on,vid})=>{const b=el('button','card rv');b.type='butt
 
 /* BACKSTAGE */
 {const B=CLIPS.filter(c=>c.bts);const n=B.reduce((a,c)=>a+c.bts.length,0);
- const s=sec('backstage','Backstage','Sahna ortidan. Klip qanday olinganini ko‘ring.',pad(n));const g=el('div','grid g3');
- B.forEach(c=>c.bts.forEach((i,k)=>g.appendChild(card({img:`m/b${i}.jpg`,vid:`m/b${i}.mp4`,tag:c.a,sm:c.t,t:'Backstage '+pad(k+1),on:()=>openV(`m/b${i}.mp4`,c.t,'Backstage')}))));s.appendChild(g)}
+ const s=sec('backstage','Backstage','Sahna ortidan.',pad(n));const g=el('div','grid g3');
+ B.forEach(c=>c.bts.forEach((i,k)=>g.appendChild(card({img:`m/b${i}.jpg`,vid:`m/b${i}.mp4`,tag:c.a,sm:c.t,t:'Backstage '+pad(k+1)}))));s.appendChild(g)}
 
 /* HAQIDA */
 {const arts=[...new Set(CLIPS.flatMap(c=>c.a.split(' & ')).concat(SNIPPETS.map(x=>x.a)))];
