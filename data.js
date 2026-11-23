@@ -112,9 +112,9 @@ const SNIPPETS=[
  {"a":"Omar","t":"Vachacha","ig":"DTniPp_DPrW","d":"2026-01-17","v":"1.7M"},
  {"a":"Omar","t":"Vachacha","ig":"DTvRNVGjDM4","d":"2026-01-20","v":"812K"}];
 const SAYRO=[
- {e:1,a:"Askarov Toxir",t:"Unuta olaman",id:"HQ8lhNbJU6M"},
- {e:2,a:"Bilol",t:"Sevgimiz",id:"yCXzOAJE23I"},
- {e:3,a:"Gulyora",t:"Unutolsam",id:"3UrF-eezAhE"},
- {e:4,a:"G'aybulla Tursunov & Jasmin",t:"Keraksan",id:"KlvraqaCsMY"},
+ {e:6,a:"Gulyora",t:"Hamon seni sevaman",id:"uFEdfTRWKMs"},
  {e:5,a:"Bilol",t:"Balla",id:"6aS1W0_v7PA"},
- {e:6,a:"Gulyora",t:"Hamon seni sevaman",id:"uFEdfTRWKMs"}];
+ {e:4,a:"G'aybulla Tursunov & Jasmin",t:"Keraksan",id:"KlvraqaCsMY"},
+ {e:3,a:"Gulyora",t:"Unutolsam",id:"3UrF-eezAhE"},
+ {e:2,a:"Bilol",t:"Sevgimiz",id:"yCXzOAJE23I"},
+ {e:1,a:"Askarov Toxir",t:"Unuta olaman",id:"HQ8lhNbJU6M"}];
