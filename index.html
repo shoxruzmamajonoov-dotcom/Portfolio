@@ -231,8 +231,24 @@ CLIPS.sort((x,y)=>y.d.localeCompare(x.d)); // yangisi boshida
 const OY=["yanvar","fevral","mart","aprel","may","iyun","iyul","avgust","sentyabr","oktyabr","noyabr","dekabr"];
 const sana=d=>{const[y,m]=d.split('-');return OY[+m-1]+' '+y};
 const SNIPPETS=[
- {a:"G'aybulla Tursunov",t:"Meni bir dardim bor",ig:"DQCEkHQDS1a",d:"2025-10-19",lk:"130K"},
- {a:"G'aybulla Tursunov",t:"Ko'pchilikning muammosi",ig:"DPyVeagCEs9",d:"2025-10-13",lk:"295K"},
+/*IG*/
+ {"a": "G'aybulla Tursunov", "t": "Ko'pchilikning muammosi", "ig": "DPyVeagCEs9", "d": "2025-10-13", "v": "2.9M"},
+ {"a": "G'aybulla Tursunov", "t": "Meni bir dardim bor", "ig": "DQCEkHQDS1a", "d": "2025-10-19", "v": "869K"},
+ {"a": "G'aybulla Tursunov", "t": "Yangi qo'shiq", "ig": "DQenkumjcY6", "d": "2025-10-31", "v": "2.1M"},
+ {"a": "G'aybulla Tursunov", "t": "Hali rosa beraman dodingni", "ig": "DQj1xfvDZP5", "d": "2025-11-02", "v": "1.5M"},
+ {"a": "G'aybulla Tursunov", "t": "Hali rosa beraman dodingni · 2", "ig": "DQo_aU2jeIa", "d": "2025-11-04", "v": "3.2M"},
+ {"a": "G'aybulla Tursunov", "t": "Qaysi viloyatdan?", "ig": "DQuJANaDZjk", "d": "2025-11-04", "v": "447K"},
+ {"a": "G'aybulla Tursunov", "t": "Tergayverib", "ig": "DQzShWhjQXr", "d": "2025-11-08", "v": "588K"},
+ {"a": "Jasmin", "t": "Yangi duet", "ig": "DTA6U7djeKP", "d": "2026-01-01", "v": "569K"},
+ {"a": "G'aybulla Tursunov", "t": "Tez kunda", "ig": "DTFhV1DDTDJ", "d": "2026-01-04", "v": "558K"},
+ {"a": "G'aybulla Tursunov", "t": "Kelmadi · premyera", "ig": "DVQuEmujcmH", "d": "2026-02-27", "v": "421K"},
+ {"a": "G'aybulla Tursunov", "t": "Kelmadi", "ig": "DVdxC5miu-4", "d": "2026-03-03", "v": "91K"},
+ {"a": "G'aybulla Tursunov", "t": "Komila · ertaga", "ig": "DXmV_3aqj1J", "d": "2026-04-26", "v": "265K"},
+ {"a": "G'aybulla Tursunov", "t": "Qo'shiqni eshitdingizmi?", "ig": "DXroEElDWbt", "d": "2026-04-28", "v": "766K"},
+ {"a": "G'aybulla Tursunov", "t": "Komilani trend qilamizmi?", "ig": "DX1wZ0-t15K", "d": "2026-05-02", "v": "154K"},
+ {"a": "G'aybulla Tursunov", "t": "Eng chuqur izlar yurakda qoladi", "ig": "DavS4QGKiUL", "d": "2026-07-12", "v": "33K"},
+ {"a": "G'aybulla Tursunov", "t": "Bu yurak", "ig": "Da-eEDzMCWo", "d": "2026-07-19", "v": "185K"},
+/*/IG*/
  {a:"Jasmin",t:"Rejissyor va uning ishi",p:"m/r1.jpg",l:"m/r1.mp4"},
  {a:"Jasmin",t:"Bitta kadr uchun 7 kun",p:"m/r2.jpg",l:"m/r2.mp4"},
  {a:"Jasmin",t:"Reja · Set · Natija",p:"m/r4.jpg",l:"m/r4.mp4"},
@@ -272,7 +288,7 @@ SECS.forEach(([id,n,c],i)=>{const b=el('a','hc',`<span>${pad(i+1)}</span><b>${n}
 
 const main=document.getElementById('main');
 const sec=(id,name,sub)=>{const s=el('section','sec wrap');s.id=id;s.innerHTML=`<div class="head"><div class="ruler"><span class="tk"></span><span class="end"></span><span class="mk"></span></div><h2 class="rv"><i>#</i>${name}</h2>${sub?`<p class="rv">${sub}</p>`:''}</div>`;main.appendChild(s);return s};
-const vcard=(o,click)=>{const b=el(click?'button':'figure','vc rv');if(click)b.type='button';if(o.ig)o={...o,p:`https://www.instagram.com/p/${o.ig}/media/?size=l`,l:''};
+const vcard=(o,click)=>{const b=el(click?'button':'figure','vc rv');if(click)b.type='button';if(o.ig)o={...o,p:`m/ig/${o.ig}.webp`,l:''};
  b.innerHTML=`<img src="${o.p}" alt="">${o.l?`<video data-src="${o.l}" muted loop playsinline preload="none"></video>`:''}${o.v||o.lk?`<span class="st">${o.v?'▶ '+o.v:'♥ '+o.lk}</span>`:''}${o.t?`<figcaption><b>${esc(o.t)}</b><span>${esc(o.a||'')}</span></figcaption>`:''}`;
  if(click)b.addEventListener('click',click);return b};
 const btsStrip=c=>{const g=el('div','strip');c.bts.forEach((i,k)=>g.appendChild(vcard({p:`m/b${i}.jpg`,l:`m/b${i}.mp4`,t:'Backstage '+pad(k+1),a:c.t})));return g};
