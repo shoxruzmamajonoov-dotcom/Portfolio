@@ -144,6 +144,7 @@ footer{padding:clamp(90px,12vw,160px) 0 34px;text-align:center}
 footer h2{font-family:var(--serif);font-weight:400;font-size:clamp(54px,12.5vw,190px);line-height:.88;letter-spacing:-.02em;margin:clamp(40px,6vw,70px) 0 20px}
 footer h2 em{color:var(--or)}
 footer .cr{font-size:13px;color:var(--mute);letter-spacing:.06em}
+footer .ct{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 28px;margin-top:18px;font-family:var(--serif);font-size:clamp(24px,3vw,34px)}footer .ct a:hover,.b2 a:hover{color:var(--or)}
 footer .fl{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 24px;margin-top:26px;font-size:13px}
 footer .fl a:hover{color:var(--or)}
 
@@ -197,6 +198,7 @@ footer .fl a:hover{color:var(--or)}
   <div class="ruler"><span class="tk"></span><span class="end"></span><span class="mk"></span></div>
   <h2>Shoxruz <em>Mamadzhanov</em></h2>
   <div class="cr">Shoxruz Mamadzhanov · Director · Producer</div>
+  <div class="ct"><a href="tel:+998942377572">+998 94 237 75 72</a><a href="https://www.instagram.com/shvxrvz/" target="_blank" rel="noopener">@shvxrvz</a></div>
   <div class="fl"><a href="#clip">Clip</a><a href="#snippet">Snippet</a><a href="#project">Project</a><a href="#backstage">Backstage</a><a href="#haqida">Haqida</a></div>
 </footer>
 
@@ -329,7 +331,7 @@ const btsStrip=c=>{const g=el('div','strip');c.bts.forEach((i,k)=>g.appendChild(
  s.innerHTML=`<div class="head"><div class="ruler"><span class="tk"></span><span class="end"></span><span class="mk"></span></div><h2 class="rv"><i>(</i>Haqida<i>)</i></h2></div>
  <div class="bento">
   <div class="bx b1 rv"><div><div class="big">15+</div><div class="t">musiqiy klip — rejissyor va prodyuser sifatida</div></div><div class="dots"></div><div class="tag">#Fakt</div></div>
-  <div class="bx b2 rv"><div class="ph"><img src="https://i.ytimg.com/vi/SPAuOFmT5WU/maxresdefault.jpg" alt=""></div><div class="rows2"><div><span>Ijrochilar</span><b>${artists.length}</b></div><div><span>Loyiha</span><b>Sayro</b></div><div><span>Rol</span><b>Director</b></div><div><span>Rol</span><b>Producer</b></div></div></div>
+  <div class="bx b2 rv"><div class="ph"><img src="https://i.ytimg.com/vi/SPAuOFmT5WU/maxresdefault.jpg" alt=""></div><div class="rows2"><div><span>Ijrochilar</span><b>${artists.length}</b></div><div><span>Loyiha</span><b>Sayro</b></div><div><span>Rol</span><b>Director</b></div><div><span>Rol</span><b>Producer</b></div><div><span>Telefon</span><b><a href="tel:+998942377572">+998 94 237 75 72</a></b></div><div><span>Instagram</span><b><a href="https://www.instagram.com/shvxrvz/" target="_blank" rel="noopener">@shvxrvz</a></b></div></div></div>
   <div class="bx b3 rv"><ul id="names"></ul><div class="q">Kliplar va loyihalar ko'payib boradi.</div></div>
  </div>`;main.appendChild(s);
  const nm=s.querySelector('#names');artists.forEach(a=>{const n=CLIPS.filter(c=>c.a.split(' & ').includes(a)).length;const li=el('li');li.textContent=a;const sm=el('small');sm.textContent=n?n+' klip':'snippet';li.appendChild(sm);nm.appendChild(li)});}
