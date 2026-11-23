@@ -66,7 +66,7 @@ nav ul a{opacity:.75;transition:opacity .2s}nav ul a:hover{opacity:1;color:var(-
 .hc:hover b{color:var(--or)}
 
 /* section heads */
-.sec{padding:clamp(80px,11vw,150px) 0 0}
+.sec{padding-top:clamp(80px,11vw,150px)}
 .head{text-align:center;margin-bottom:clamp(36px,6vw,80px)}
 .head .ruler{margin-bottom:clamp(40px,7vw,90px)}
 .head h2{font-family:var(--serif);font-weight:400;font-size:clamp(56px,10vw,150px);line-height:.9;letter-spacing:-.02em}
@@ -76,22 +76,25 @@ nav ul a{opacity:.75;transition:opacity .2s}nav ul a:hover{opacity:1;color:var(-
 .grp h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3.4vw,44px)}
 .grp h3 em{color:var(--or)}
 
-/* clip rows (scroll 3D) */
-.rows{display:flex;flex-direction:column;gap:clamp(50px,8vw,110px);perspective:1200px}
-.row{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(24px,5vw,70px);align-items:center}
-.row:nth-child(even){grid-template-columns:minmax(0,4fr) minmax(0,7fr)}
-.row:nth-child(even) .tc{order:2}
-.tc{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;background:#1b1a19;transform:rotateX(var(--rx,0deg)) scale(var(--sc,1));transition:transform .12s linear;box-shadow:0 40px 80px #000a;width:100%;justify-self:center}
-.tc video{position:absolute;inset:0;opacity:0;transition:opacity .6s}.tc video.on{opacity:1}
+/* clip coverflow (horizontal) */
+.cf{position:relative;margin:0 calc(-1*var(--g))}
+.rows{display:flex;gap:clamp(14px,2vw,26px);overflow-x:auto;scroll-snap-type:x mandatory;padding:20px calc(50% - min(300px,41vw)) 30px;perspective:1400px;scrollbar-width:none}
+.rows::-webkit-scrollbar{display:none}
+.row{flex:0 0 min(600px,82vw);scroll-snap-align:center;transform:rotateY(var(--ry,0deg)) scale(var(--sc,1));opacity:var(--op,1);transition:transform .15s linear,opacity .15s linear}
+.tc{position:relative;display:block;aspect-ratio:16/9;width:100%;border-radius:16px;overflow:hidden;background:#1b1a19;box-shadow:0 40px 80px #000a}
 .tc .pl{position:absolute;left:16px;bottom:16px;width:54px;height:54px;border-radius:50%;background:var(--or);display:grid;place-items:center;transition:transform .3s}
 .tc .pl::after{content:"";border-left:14px solid #fff;border-top:9px solid transparent;border-bottom:9px solid transparent;margin-left:4px}
 .tc:hover .pl{transform:scale(1.12)}
-.info .n{font-family:var(--serif);color:var(--or);font-size:22px}
-.info h4{font-family:var(--serif);font-weight:400;font-size:clamp(44px,6.4vw,96px);line-height:.95;margin:6px 0 14px;letter-spacing:-.02em}
-.info dl{display:grid;grid-template-columns:auto 1fr;gap:6px 22px;font-size:13px;border-top:1px solid var(--line);padding-top:14px;max-width:360px}
-.info dt{color:var(--mute)}
-.info .btn{margin-top:20px}
-@media(max-width:760px){.row,.row:nth-child(even){grid-template-columns:1fr;gap:18px}.row:nth-child(even) .tc{order:0}.tc{max-width:none}}
+.info{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:16px}
+.info .n{font-family:var(--serif);color:var(--or);font-size:20px}
+.info h4{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4vw,52px);line-height:.95;letter-spacing:-.02em}
+.info .m{text-align:right;font-size:12px;color:var(--mute);line-height:1.6;flex:0 0 auto}
+.info .m b{color:var(--ink);font-weight:500}
+.cfnav{display:flex;justify-content:center;align-items:center;gap:18px;margin-top:6px}
+.cfnav button{width:46px;height:46px;border:1px solid #fff4;border-radius:50%;font-size:18px;transition:border-color .2s,color .2s}
+.cfnav button:hover{border-color:var(--or);color:var(--or)}
+.cfnav span{font-family:var(--serif);font-size:22px;min-width:70px;text-align:center}
+.cfnav span em{color:var(--mute);font-style:normal}
 
 /* strips */
 .strip{display:flex;gap:14px;overflow-x:auto;padding:6px 2px 18px;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:#333 transparent}
@@ -269,13 +272,19 @@ const vcard=(o,click)=>{const b=el(click?'button':'figure','vc rv');if(click)b.t
 const btsStrip=c=>{const g=el('div','strip');c.bts.forEach((i,k)=>g.appendChild(vcard({p:`m/b${i}.jpg`,l:`m/b${i}.mp4`,t:'Backstage '+pad(k+1),a:c.t})));return g};
 
 /* clip */
-{const s=sec('clip','Clip','Musiqiy kliplar · bosing, sayt ichida ochiladi');const R=el('div','rows');
+{const s=sec('clip','Clip','Musiqiy kliplar · suring yoki strelkalarni bosing');const W=el('div','cf');const R=el('div','rows');
  CLIPS.forEach((c,i)=>{const r=el('div','row');
   const t=el('button','tc',`<img src="https://i.ytimg.com/vi/${c.yt}/maxresdefault.jpg" alt="" loading="lazy"><span class="pl" aria-hidden="true"></span>`);t.type='button';t.setAttribute('aria-label',`${c.t}, ${c.a}`);t.addEventListener('click',()=>openYT(c.yt,c.t,c.a));
-  const inf=el('div','info rv',`<div class="n">(${pad(i+1)})</div><h4>${esc(c.t)}</h4><dl><dt>Ijrochi</dt><dd>${esc(c.a)}</dd><dt>Chiqqan</dt><dd>${sana(c.d)}</dd><dt>Rol</dt><dd>Director · Producer</dd>${c.bts?'<dt>Backstage</dt><dd>Pastda ↓</dd>':''}</dl>`);
-  r.append(t,inf);R.appendChild(r);
-  if(c.bts){const w=el('div');w.append(el('div','grp',`<h3>Backstage <em>·</em> ${esc(c.t)}</h3><span class="lab">${pad(c.bts.length)}</span>`),btsStrip(c));R.appendChild(w)}});
- s.appendChild(R);}
+  const inf=el('div','info',`<div><div class="n">(${pad(i+1)})</div><h4>${esc(c.t)}</h4></div><div class="m"><b>${esc(c.a)}</b><br>${sana(c.d)}<br>Director · Producer</div>`);
+  r.append(t,inf);R.appendChild(r)});
+ W.appendChild(R);s.appendChild(W);
+ const nv=el('div','cfnav',`<button type="button" aria-label="Oldingi">←</button><span id="cfN">01 <em>/ ${pad(CLIPS.length)}</em></span><button type="button" aria-label="Keyingi">→</button>`);s.appendChild(nv);
+ const go=d=>{const w=R.querySelector('.row').offsetWidth+parseFloat(getComputedStyle(R).columnGap||20);R.scrollBy({left:d*w,behavior:'smooth'})};
+ nv.firstChild.onclick=()=>go(-1);nv.lastChild.onclick=()=>go(1);
+ const rs=[...R.children],cfN=nv.querySelector('#cfN');
+ const fx=()=>{const rr=R.getBoundingClientRect(),cx=rr.left+rr.width/2;let best=0,bd=1e9;rs.forEach((r,i)=>{const b=r.getBoundingClientRect();const d=(b.left+b.width/2-cx)/b.width;if(Math.abs(d)<bd){bd=Math.abs(d);best=i}const p=Math.max(-1.5,Math.min(1.5,d));r.style.setProperty('--ry',(-p*28).toFixed(1)+'deg');r.style.setProperty('--sc',(1-Math.min(1,Math.abs(p))*.14).toFixed(3));r.style.setProperty('--op',(1-Math.min(1,Math.abs(p))*.45).toFixed(2))});cfN.innerHTML=`${pad(best+1)} <em>/ ${pad(rs.length)}</em>`};
+ let tk=0;R.addEventListener('scroll',()=>{if(!tk){tk=1;requestAnimationFrame(()=>{tk=0;fx()})}},{passive:true});addEventListener('resize',fx);requestAnimationFrame(fx);
+ CLIPS.filter(c=>c.bts).forEach(c=>{s.append(el('div','grp',`<h3>Backstage <em>·</em> ${esc(c.t)}</h3><span class="lab">${pad(c.bts.length)}</span>`),btsStrip(c))});}
 /* snippet */
 {const s=sec('snippet','Snippet','Reels va qisqa videolar');
  Object.entries(groupBy(SNIPPETS)).forEach(([a,list])=>{s.appendChild(el('div','grp',`<h3>${esc(a)}</h3><span class="lab">${pad(list.length)}</span>`));const g=el('div','strip');
@@ -309,7 +318,7 @@ const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.tar
 document.querySelectorAll('.rv').forEach(x=>rio.observe(x));
 
 /* scroll-driven 3D tilt + ruler markers */
-const TC=[...document.querySelectorAll('.tc')],MK=[...document.querySelectorAll('.ruler .mk')];let tick=false;
+const TC=[],MK=[...document.querySelectorAll('.ruler .mk')];let tick=false;
 function onScroll(){tick=false;const vh=innerHeight;
  TC.forEach(t=>{const r=t.getBoundingClientRect();const p=Math.max(-1,Math.min(1,((r.top+r.height/2)-vh/2)/(vh*.75)));t.style.setProperty('--rx',(p*28).toFixed(2)+'deg');t.style.setProperty('--sc',(1-Math.abs(p)*.1).toFixed(3))});
  const P=scrollY/Math.max(1,document.documentElement.scrollHeight-vh);MK.forEach(m=>m.style.setProperty('--p',(P*100).toFixed(1)+'%'))}
