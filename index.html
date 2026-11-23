@@ -210,6 +210,7 @@ const CLIPS=[
  {a:"Gulyora",t:"Menday qizni",n:"04",yt:"wLBPql4ouzo"},
  {a:"Gulyora",t:"Sensiz",n:"05",yt:"uavG5tUv3Yg"},
  {a:"Askarov Toxir",t:"Kuz",n:"08",yt:"AkTEkgZe81Q"},
+ {a:"Askarov Toxir",t:"Telbaday",yt:"oeAcAqxUhqU"},
  {a:"Cuba",t:"Ey hayot",n:"06",yt:"IyTQTsj8Wnc"}
 ];
 const SNIPPETS=[
@@ -233,7 +234,7 @@ const groupBy=a=>a.reduce((m,x)=>((m[x.a]=m[x.a]||[]).push(x),m),{});
 const artists=[...new Set(CLIPS.flatMap(c=>c.a.split(' & ')).concat(SNIPPETS.map(x=>x.a)))];
 
 /* hero 3D stack */
-const st=document.getElementById('stack');const S=CLIPS.map(c=>{const d=el('div','s',`<img src="m/c${c.n}.jpg" alt="">`);st.appendChild(d);return d});
+const st=document.getElementById('stack');const S=CLIPS.filter(c=>c.n).map(c=>{const d=el('div','s',`<img src="m/c${c.n}.jpg" alt="">`);st.appendChild(d);return d});
 let off=0;
 function layout(){const M=S.length;S.forEach((d,i)=>{const k=(i-off+M*99)%M; // 0 front
   let t,o=1,f='none',z=M-k;
@@ -260,7 +261,7 @@ const btsStrip=c=>{const g=el('div','strip');c.bts.forEach((i,k)=>g.appendChild(
 /* clip */
 {const s=sec('clip','Clip','Musiqiy kliplar · bosing, sayt ichida ochiladi');const R=el('div','rows');
  CLIPS.forEach((c,i)=>{const r=el('div','row');
-  const t=el('button','tc',`<img src="m/c${c.n}.jpg" alt=""><video data-src="m/c${c.n}.mp4" muted loop playsinline preload="none"></video><span class="pl" aria-hidden="true"></span>`);t.type='button';t.setAttribute('aria-label',`${c.t}, ${c.a}`);t.addEventListener('click',()=>openYT(c.yt,c.t,c.a));
+  const t=el('button','tc',(c.n?`<img src="m/c${c.n}.jpg" alt=""><video data-src="m/c${c.n}.mp4" muted loop playsinline preload="none"></video>`:`<img src="https://i.ytimg.com/vi/${c.yt}/maxresdefault.jpg" alt="" loading="lazy">`)+`<span class="pl" aria-hidden="true"></span>`);t.type='button';t.setAttribute('aria-label',`${c.t}, ${c.a}`);t.addEventListener('click',()=>openYT(c.yt,c.t,c.a));
   const inf=el('div','info rv',`<div class="n">(${pad(i+1)})</div><h4>${esc(c.t)}</h4><dl><dt>Ijrochi</dt><dd>${esc(c.a)}</dd><dt>Rol</dt><dd>Director · Producer</dd>${c.bts?'<dt>Backstage</dt><dd>Pastda ↓</dd>':''}</dl>`);
   r.append(t,inf);R.appendChild(r);
   if(c.bts){const w=el('div');w.append(el('div','grp',`<h3>Backstage <em>·</em> ${esc(c.t)}</h3><span class="lab">${pad(c.bts.length)}</span>`),btsStrip(c));R.appendChild(w)}});
