@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shoxruz Mamadzhanov</title>
+<meta name="description" content="Shoxruz Mamadzhanov — Director · Producer. Musiqiy kliplar, snippetlar, loyihalar.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f2f0;--ink:#0d0d0d;--mute:#76766f;--line:#d9d9d4;--pill:rgba(20,20,20,.62);--card:#e4e4df}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:clip}
+body{background:var(--bg);color:var(--ink);font-family:"Inter Tight",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.wrap{max-width:1440px;margin:0 auto;padding:0 clamp(16px,3vw,40px)}
+/* nav */
+nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(10px)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.06em}
+.logo i{display:grid;grid-template-columns:repeat(4,4px);gap:2px}
+.logo i b{width:4px;height:4px;background:var(--ink)}
+.logo i b:nth-child(3n){background:transparent}
+nav ul{display:flex;gap:clamp(12px,1.6vw,22px);list-style:none;font-size:12px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+nav ul a{opacity:.85}nav ul a:hover{opacity:1;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:720px){nav ul li:not(.k){display:none}}
+/* section head */
+.sh{display:grid;grid-template-columns:1fr minmax(180px,280px);align-items:end;gap:24px;padding:clamp(70px,10vw,140px) 0 clamp(28px,4vw,48px);border-bottom:1px solid var(--line)}
+.sh h1,.sh h2{font-weight:500;font-size:clamp(56px,11.5vw,176px);line-height:.86;letter-spacing:-.045em;text-transform:uppercase}
+.sh h1{font-size:clamp(34px,9.4vw,150px)}
+.sh p{font-size:14px;line-height:1.45;color:#3c3c38;padding-bottom:.6em}
+@media(max-width:720px){.sh{grid-template-columns:1fr}.sh p{max-width:320px}}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:22px 0 26px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+.meta b{color:var(--ink);font-weight:600}
+/* grid + card */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(40px,6vw,80px) clamp(8px,1vw,14px)}
+.grid.g4{grid-template-columns:repeat(4,1fr);gap:clamp(28px,4vw,52px) clamp(8px,1vw,14px)}
+.grid.g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:900px){.grid.g4,.grid.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid{gap:30px 10px}.card h3{font-size:13px}.card .sm{font-size:11px}.tag{right:6px;bottom:6px;font-size:9px;padding:3px 7px}}
+.card{display:block;text-align:left;width:100%}
+.card .im{position:relative;aspect-ratio:16/10;border-radius:6px;overflow:hidden;background:var(--card)}
+.g4 .card .im,.g3 .card .im{aspect-ratio:4/5}
+.card .im img,.card .im video{transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .5s}
+.card:hover .im img,.card:hover .im video{transform:scale(1.035)}
+.card .im video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .4s}
+.card .im video.on{opacity:1}
+.tag{position:absolute;right:12px;bottom:12px;padding:5px 10px;border-radius:99px;background:var(--pill);color:#fff;font-size:10.5px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;backdrop-filter:blur(6px);white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis}
+.card .sm{margin-top:12px;font-size:12px;color:var(--mute)}
+.card h3{margin-top:6px;padding-bottom:12px;border-bottom:1px solid var(--line);font-size:clamp(15px,1.45vw,19px);font-weight:500;letter-spacing:-.005em;text-transform:uppercase;line-height:1.2}
+.g4 .card h3{font-size:clamp(13px,1.1vw,15px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.g4 .tag{right:8px;bottom:8px;font-size:10px;padding:4px 8px}
+/* filters */
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{padding:7px 12px;border:1px solid var(--line);border-radius:99px;font-size:11.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);background:transparent}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.more{display:block;margin:clamp(36px,5vw,60px) auto 0;padding:13px 26px;border:1px solid var(--ink);border-radius:99px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+.more:hover{background:var(--ink);color:var(--bg)}
+/* about */
+.ab{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,5vw,80px);padding-top:clamp(28px,4vw,48px)}
+.ab .big{font-size:clamp(80px,13vw,200px);font-weight:500;letter-spacing:-.05em;line-height:.85}
+.ab .big small{display:block;margin-top:18px;font-size:14px;letter-spacing:0;color:#3c3c38;font-weight:400;line-height:1.45;max-width:300px}
+.rows div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px}
+.rows div:first-child{border-top:1px solid var(--line)}
+.rows span{color:var(--mute)}
+.rows b{font-weight:500;text-align:right}
+.rows a:hover{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:760px){.ab{grid-template-columns:1fr}}
+footer{margin-top:clamp(90px,12vw,160px);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:28px;font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--mute)}
+footer b{color:var(--ink);font-weight:500}
+/* reveal */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:50;background:rgba(242,242,240,.96);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:64px 16px 24px}
+#lb[hidden]{display:none}
+#lbX{position:absolute;top:14px;right:clamp(16px,3vw,40px);font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--ink);border-radius:99px}
+#lbT{position:absolute;top:20px;left:clamp(16px,3vw,40px);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;max-width:60vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#lbT span{color:var(--mute);font-weight:400;margin-left:8px}
+.fr{width:min(1100px,100%);aspect-ratio:16/9;background:#000;border-radius:6px;overflow:hidden}
+.fr.v{width:min(400px,100%);aspect-ratio:auto;height:min(760px,calc(100vh - 110px));background:#fff}
+.fr iframe,.fr video{width:100%;height:100%;border:0;display:block}
+.fr video{object-fit:contain;background:#000}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="logo" href="#top"><i><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></i>SHOXRUZ MAMADZHANOV</a>
+<ul><li><a href="#clip">Clip</a></li><li><a href="#snippet">Snippet</a></li><li><a href="#project">Project</a></li><li><a href="#backstage">Backstage</a></li><li class="k"><a href="#haqida">Haqida ↗</a></li></ul></div></nav>
+
+<main class="wrap" id="top">
+ <header class="sh"><h1 class="rv">Shoxruz<br>Mamadzhanov</h1><p class="rv">Director · Producer. Musiqiy kliplar, snippetlar va loyihalar.</p></header>
+ <div id="main"></div>
+</main>
+
+<footer><div class="wrap"><span><b>Shoxruz Mamadzhanov</b> · Director · Producer</span><span><a href="tel:+998942377572">+998 94 237 75 72</a> · <a href="https://www.instagram.com/shvxrvz/" target="_blank" rel="noopener">@shvxrvz</a></span></div></footer>
+
+<div id="lb" hidden role="dialog" aria-modal="true" aria-label="Video"><div id="lbT"></div><button id="lbX" type="button">Yopish</button><div class="fr" id="fr"></div></div>
+
+<script src="data.js"></script>
+<script>
+const pad=n=>String(n).padStart(2,'0');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+const yt=id=>`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+const main=document.getElementById('main');
+const sec=(id,title,desc,count)=>{const s=el('section');s.id=id;s.innerHTML=`<div class="sh"><h2 class="rv">${title}</h2><p class="rv">${desc}</p></div><div class="meta"><span>Items: <b>${count}</b></span></div>`;main.appendChild(s);return s};
+const card=({img,tag,sm,t,on,vid})=>{const b=el('button','card rv');b.type='button';
+ b.innerHTML=`<div class="im"><img src="${img}" alt="" loading="lazy">${vid?`<video data-src="${vid}" muted loop playsinline preload="none"></video>`:''}${tag?`<span class="tag">${esc(tag)}</span>`:''}</div><div class="sm">${esc(sm||'')}</div><h3>${esc(t)}</h3>`;
+ b.addEventListener('click',on);return b};
+
+/* CLIP */
+{const s=sec('clip','Clips','Musiqiy kliplar. Rejissyor va prodyuser sifatida, yangisi birinchi.',pad(CLIPS.length));const g=el('div','grid');
+ CLIPS.forEach(c=>g.appendChild(card({img:yt(c.yt),tag:c.a,sm:sana(c.d),t:c.t,on:()=>openYT(c.yt,c.t,c.a)})));s.appendChild(g)}
+
+/* SNIPPET */
+{const s=sec('snippet','Snippets','Instagram reels. Ijrochi bo‘yicha tanlang.',pad(SNIPPETS.length));
+ const arts=[...new Set(SNIPPETS.map(x=>x.a))];const meta=s.querySelector('.meta');const ch=el('div','chips');meta.appendChild(ch);
+ const g=el('div','grid g4');s.appendChild(g);const more=el('button','more','Yana ko‘rsatish');more.type='button';s.appendChild(more);
+ let cur='Barchasi',shown=12;
+ const list=()=>(cur==='Barchasi'?SNIPPETS:SNIPPETS.filter(x=>x.a===cur)).slice().sort((x,y)=>(y.d||'').localeCompare(x.d||''));
+ const draw=()=>{const L=list();g.innerHTML='';L.slice(0,shown).forEach(x=>{const c=card({img:`m/ig/${x.ig}.webp`,tag:x.v?'▶ '+x.v:'',sm:x.a+' · '+sana(x.d),t:x.t,on:()=>openIG(x.ig,x.t,x.a)});c.classList.add('in');g.appendChild(c)});more.hidden=L.length<=shown;s.querySelector('.meta b').textContent=pad(L.length)};
+ ['Barchasi',...arts].forEach(a=>{const b=el('button');b.type='button';b.textContent=a;b.setAttribute('aria-pressed',a===cur);b.onclick=()=>{cur=a;shown=12;ch.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};ch.appendChild(b)});
+ more.onclick=()=>{shown+=12;draw()};draw()}
+
+/* PROJECT */
+{const s=sec('project','Project','Sayro · YouTube loyiha. Har bir epizod alohida ijrochi bilan.',pad(SAYRO.length));const g=el('div','grid');
+ SAYRO.forEach(p=>g.appendChild(card({img:yt(p.id),tag:'Episode '+pad(p.e),sm:p.a,t:p.t,on:()=>openYT(p.id,p.t,p.a)})));s.appendChild(g)}
+
+/* BACKSTAGE */
+{const B=CLIPS.filter(c=>c.bts);const n=B.reduce((a,c)=>a+c.bts.length,0);
+ const s=sec('backstage','Backstage','Sahna ortidan. Klip qanday olinganini ko‘ring.',pad(n));const g=el('div','grid g3');
+ B.forEach(c=>c.bts.forEach((i,k)=>g.appendChild(card({img:`m/b${i}.jpg`,vid:`m/b${i}.mp4`,tag:c.a,sm:c.t,t:'Backstage '+pad(k+1),on:()=>openV(`m/b${i}.mp4`,c.t,'Backstage')}))));s.appendChild(g)}
+
+/* HAQIDA */
+{const arts=[...new Set(CLIPS.flatMap(c=>c.a.split(' & ')).concat(SNIPPETS.map(x=>x.a)))];
+ const s=el('section');s.id='haqida';s.innerHTML=`<div class="sh"><h2 class="rv">Haqida</h2><p class="rv">Rejissyor va prodyuser. Musiqiy kliplar va snippetlar.</p></div>
+ <div class="ab"><div class="big rv">15+<small>musiqiy klip — rejissyor va prodyuser sifatida.</small></div>
+ <div class="rows rv"><div><span>Ism</span><b>Shoxruz Mamadzhanov</b></div><div><span>Rol</span><b>Director · Producer</b></div><div><span>Ijrochilar</span><b>${arts.map(esc).join(', ')}</b></div><div><span>Loyiha</span><b>Sayro</b></div><div><span>Telefon</span><b><a href="tel:+998942377572">+998 94 237 75 72</a></b></div><div><span>Instagram</span><b><a href="https://www.instagram.com/shvxrvz/" target="_blank" rel="noopener">@shvxrvz</a></b></div></div></div>`;main.appendChild(s)}
+
+/* reveal */
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(x=>rio.observe(x));
+/* backstage autoplay */
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src)v.src=v.dataset.src;const p=v.play();if(p)p.then(()=>v.classList.add('on')).catch(()=>{})}else v.pause()}),{rootMargin:'120px'});
+document.querySelectorAll('video[data-src]').forEach(v=>vio.observe(v));
+
+/* lightbox */
+const lb=document.getElementById('lb'),fr=document.getElementById('fr'),lbT=document.getElementById('lbT');let last=null;
+function show(t,sub,html,vert){last=document.activeElement;lbT.innerHTML=esc(t)+(sub?`<span>${esc(sub)}</span>`:'');fr.className='fr'+(vert?' v':'');fr.innerHTML=html;lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lbX').focus()}
+function openYT(id,t,a){show(t,a,`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${esc(t)}"></iframe>`)}
+function openIG(id,t,a){show(t,a,`<iframe src="https://www.instagram.com/reel/${id}/embed/" allow="autoplay; encrypted-media" title="${esc(t)}"></iframe>`,1)}
+function openV(src,t,a){show(t,a,`<video src="${src}" controls autoplay playsinline></video>`)}
+function closeLB(){fr.innerHTML='';lb.hidden=true;document.body.style.overflow='';if(last)last.focus()}
+document.getElementById('lbX').onclick=closeLB;lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.hidden)closeLB()});
+</script>
+</body>
+</html>
