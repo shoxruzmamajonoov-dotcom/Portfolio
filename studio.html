@@ -30,8 +30,18 @@ nav ul{display:flex;gap:clamp(12px,2vw,28px);list-style:none}
 nav ul a{opacity:.8}nav ul a:hover{opacity:1}
 @media(max-width:720px){nav ul li:not(.k){display:none}}
 /* hero */
-.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:clamp(20px,4vw,60px);padding:90px var(--g) clamp(28px,4vw,56px);position:relative}
-.hero h1{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;line-height:.84;font-size:clamp(64px,10.6vw,300px);letter-spacing:-.005em}
+.hero{min-height:100svh;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:clamp(28px,5vw,96px);padding:84px var(--g) 40px;position:relative}
+.hero .vf{width:auto;height:calc(100svh - 124px);max-height:1100px;min-height:480px;aspect-ratio:9/16}
+.hero .vf video{width:100%;height:100%;object-fit:cover}
+.hl{max-width:36ch;color:var(--mute);font-size:clamp(16px,1.25vw,21px);line-height:1.5;margin-top:clamp(18px,2vw,30px)}
+.hf{display:flex;gap:clamp(22px,3.5vw,64px);margin-top:clamp(24px,3vw,44px);padding-top:clamp(18px,2vw,28px);border-top:1px solid var(--line,rgba(255,255,255,.14))}
+.hf b{display:block;font-family:Anton,sans-serif;font-weight:400;font-size:clamp(40px,4.4vw,84px);line-height:1}
+.hf span{color:var(--mute);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.hk{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 26px;margin-top:clamp(24px,3vw,44px)}
+.hk span{width:100%;color:var(--mute);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.hk a{font-family:Anton,sans-serif;font-size:clamp(24px,2.3vw,42px);text-transform:uppercase;color:var(--ink);text-decoration:none}
+.hk a:hover{opacity:.6}
+.hero h1{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;line-height:.84;font-size:clamp(56px,7.6vw,210px);letter-spacing:-.005em}
 .hero h1 span{display:block}
 .hero h1 .o{-webkit-text-stroke:1.5px var(--ink);color:transparent}
 .hero .lab{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:clamp(16px,2vw,28px);color:var(--mute)}
@@ -46,7 +56,7 @@ nav ul a{opacity:.8}nav ul a:hover{opacity:1}
 .vf .tc{position:absolute;bottom:18px;left:44px;color:#fff}
 .vf .fmt{position:absolute;top:18px;right:44px;color:#fff;opacity:.8}
 @keyframes bl{50%{opacity:0}}
-@media(max-width:760px){.hero{grid-template-columns:1fr;align-items:start;padding-top:80px}.vf{width:100%;max-width:340px;order:-1;justify-self:end;aspect-ratio:4/5}.hero h1{font-size:clamp(44px,14.2vw,110px)}}
+@media(max-width:860px){.hero{grid-template-columns:1fr;align-items:start;padding-top:76px}.hero .vf{width:100%;height:auto;min-height:0;aspect-ratio:9/14}.hero h1{font-size:clamp(44px,14.2vw,110px)}.hf b{font-size:44px}}
 /* section heads */
 .sh{display:grid;grid-template-columns:1fr minmax(200px,clamp(280px,20vw,420px));align-items:end;gap:24px;padding:clamp(90px,12vw,180px) 0 clamp(20px,3vw,36px);border-bottom:1px solid var(--line)}
 .sh h2{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(64px,12vw,300px);line-height:.84;display:flex;align-items:flex-start;gap:.12em}
@@ -119,11 +129,14 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 <ul class="mono"><li><a href="#clip">Clip</a></li><li><a href="#snippet">Snippet</a></li><li><a href="#project">Project</a></li><li><a href="#backstage">Backstage</a></li><li class="k"><a href="#haqida">Haqida</a></li></ul></div></nav>
 
 <header class="hero" id="top">
- <div>
-  <div class="lab mono rv"><span><b>Director</b> · Producer</span><span>Toshkent</span><span id="hc"></span></div>
-  <h1 class="rv"><span>Shoxruz</span><span class="o">Mamadzhanov</span></h1>
- </div>
  <div class="vf rv"><video src="m/haqida.mp4" poster="m/haqida.jpg" muted loop playsinline autoplay preload="metadata"></video><i></i><i></i><i></i><i></i><span class="rec mono">Rec</span><span class="fmt mono">4K · 50</span><span class="tc mono" id="tc">00:00:00:00</span></div>
+ <div class="ht">
+  <div class="lab mono rv"><span><b>Director</b> · Producer</span><span>Toshkent</span></div>
+  <h1 class="rv"><span>Shoxruz</span><span class="o">Mamadzhanov</span></h1>
+  <p class="hl rv">Musiqiy kliplar, snippetlar va Sayro Project rejissyori va prodyuseri.</p>
+  <div class="hf rv"><div><b>15+</b><span class="mono">Musiqiy klip</span></div><div><b id="hA">7</b><span class="mono">Ijrochi</span></div><div><b>06</b><span class="mono">Sayro epizod</span></div></div>
+  <div class="hk rv"><span class="mono">Hamkorlik uchun</span><a href="tel:+998942377572">+998 94 237 75 72</a><a href="https://www.instagram.com/shvxrvz/" target="_blank" rel="noopener">@shvxrvz</a></div>
+ </div>
 </header>
 
 <main class="wrap" id="main"></main>
@@ -140,7 +153,7 @@ const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=nu
 const yt=id=>`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
 const main=document.getElementById('main');
 const artists=[...new Set(CLIPS.flatMap(c=>c.a.split(' & ')).concat(SNIPPETS.map(x=>x.a)))];
-document.getElementById('hc').textContent=`${CLIPS.length} klip · ${artists.length} ijrochi`;
+document.getElementById('hA').textContent=artists.length;
 const sec=(id,title,desc,count)=>{const s=el('section');s.id=id;s.innerHTML=`<div class="sh"><h2 class="rv">${title}<sup>(${count})</sup></h2><p class="rv">${desc}</p></div><div class="meta mono"><span>Items: <b>${count}</b></span></div>`;main.appendChild(s);return s};
 const card=({img,tag,sm,t,on,vid,num})=>{const b=el(on?'button':'figure','card rv');if(on)b.type='button';
  b.innerHTML=`<div class="im"><img src="${img}" alt="" loading="lazy">${vid?`<video data-src="${vid}" muted loop playsinline preload="none"></video>`:''}${num?`<span class="num mono">${num}</span>`:''}${tag?`<span class="tag mono">${esc(tag)}</span>`:''}${on?'<span class="pl"></span>':''}</div><div class="sm mono">${esc(sm||'')}</div><h3>${esc(t)}</h3>`;
@@ -167,7 +180,7 @@ const card=({img,tag,sm,t,on,vid,num})=>{const b=el(on?'button':'figure','card r
 /* BACKSTAGE */
 {const B=CLIPS.filter(c=>c.bts);const n=B.reduce((a,c)=>a+c.bts.length,0);
  const s=sec('backstage','Backstage','Sahna ortidan.',pad(n));const g=el('div','grid g3');
- B.forEach(c=>c.bts.forEach((i,k)=>g.appendChild(card({img:`m/b${i}.jpg`,vid:`m/b${i}.mp4`,tag:c.a,sm:c.t,t:'Backstage '+pad(k+1)}))));s.appendChild(g)}
+ B.forEach(c=>c.bts.forEach((i,k)=>g.appendChild(card({img:`m/b${i}.jpg`,vid:(typeof i=="number"?`m/b${i}.mp4`:""),tag:c.a,sm:c.t,t:'Backstage '+pad(k+1)}))));s.appendChild(g)}
 
 /* HAQIDA */
 {const s=el('section');s.id='haqida';s.innerHTML=`<div class="sh"><h2 class="rv">Haqida</h2><p class="rv">Shoxruz Mamadzhanov. Rejissyor va prodyuser.</p></div>

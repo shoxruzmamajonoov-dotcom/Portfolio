@@ -134,7 +134,7 @@ const card=({img,tag,sm,t,on,vid})=>{const b=el(on?'button':'figure','card rv');
 /* BACKSTAGE */
 {const B=CLIPS.filter(c=>c.bts);const n=B.reduce((a,c)=>a+c.bts.length,0);
  const s=sec('backstage','Backstage','Sahna ortidan.',pad(n));const g=el('div','grid g3');
- B.forEach(c=>c.bts.forEach((i,k)=>g.appendChild(card({img:`m/b${i}.jpg`,vid:`m/b${i}.mp4`,tag:c.a,sm:c.t,t:'Backstage '+pad(k+1)}))));s.appendChild(g)}
+ B.forEach(c=>c.bts.forEach((i,k)=>g.appendChild(card({img:`m/b${i}.jpg`,vid:(typeof i=="number"?`m/b${i}.mp4`:""),tag:c.a,sm:c.t,t:'Backstage '+pad(k+1)}))));s.appendChild(g)}
 
 /* HAQIDA */
 {const arts=[...new Set(CLIPS.flatMap(c=>c.a.split(' & ')).concat(SNIPPETS.map(x=>x.a)))];
