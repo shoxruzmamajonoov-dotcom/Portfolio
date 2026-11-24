@@ -7,7 +7,7 @@ const CLIPS=[
  {a:"Askarov Toxir",t:"Kuz",n:"08",yt:"AkTEkgZe81Q",d:"2025-11-23"},
  {a:"Askarov Toxir",t:"Telbaday",yt:"oeAcAqxUhqU",d:"2025-11-05"},
  {a:"Cuba",t:"Ey hayot",n:"06",yt:"IyTQTsj8Wnc",d:"2025-10-24"},
- {a:"Cuba & Gulyora",t:"Kerak emas",yt:"heyvW5v-UMU",d:"2025-12-07"},
+ {a:"Cuba & Gulyora",t:"Kerak emas",yt:"heyvW5v-UMU",d:"2025-12-07",bts:[23,24,25]},
  {a:"August family",t:"Yangi yil 2026",yt:"Z5bkyuhczz0",d:"2025-12-30",bts:[22,"p12"]},
  {a:"Jasmin",t:"Ketma",yt:"Ct73g8xSFSk",d:"2026-02-11",bts:[7,8]},
  {a:"G'aybulla Tursunov",t:"Komila",yt:"wwTShK05wzI",d:"2026-04-28"},
