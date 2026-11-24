@@ -244,7 +244,7 @@ const sec=(id,name,sub)=>{const s=el('section','sec wrap');s.id=id;s.innerHTML=`
 const vcard=(o,click)=>{const b=el(click?'button':'figure','vc rv');if(click)b.type='button';if(o.ig)o={...o,p:`m/ig/${o.ig}.webp`,l:''};
  b.innerHTML=`<img src="${o.p}" alt="">${o.l?`<video data-src="${o.l}" muted loop playsinline preload="none"></video>`:''}${o.v||o.lk?`<span class="st">${o.v?'▶ '+o.v:'♥ '+o.lk}</span>`:''}${o.t?`<figcaption><b>${esc(o.t)}</b><span>${esc(o.a||'')}</span></figcaption>`:''}`;
  if(click)b.addEventListener('click',click);return b};
-const btsStrip=c=>{const g=el('div','strip');c.bts.forEach((i,k)=>g.appendChild(vcard({p:`m/b${i}.jpg`,l:(typeof i=="number"?`m/b${i}.mp4`:""),t:'Backstage '+pad(k+1),a:c.t})));return g};
+const btsStrip=c=>{const g=el('div','strip');c.bts.forEach((i,k)=>g.appendChild(vcard({p:`m/b${i}.jpg`,l:(typeof i=="number"?`m/b${i}.mp4`:""),t:c.t,a:'Backstage'})));return g};
 
 /* clip */
 {const s=sec('clip','Clip','Musiqiy kliplar · suring yoki strelkalarni bosing');const W=el('div','cf');const R=el('div','rows');
