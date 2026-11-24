@@ -75,6 +75,7 @@ nav ul a{opacity:.8}nav ul a:hover{opacity:1}
 .card .im{position:relative;aspect-ratio:16/9;overflow:hidden;background:#1a1a1a}
 .g4 .im,.g3 .im{aspect-ratio:4/5}
 .card img,.card video{filter:grayscale(1) contrast(1.08) brightness(.92);transition:filter .6s,transform 1s cubic-bezier(.2,.7,.2,1)}
+@media (hover:none),(max-width:760px){.card img,.card video{filter:none}}
 button.card:hover img,button.card:focus-visible img{filter:none;transform:scale(1.03)}
 .card video{position:absolute;inset:0;opacity:0;transition:opacity .4s,filter .6s}
 .card video.on{opacity:1}
