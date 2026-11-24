@@ -129,7 +129,7 @@ const I={
  film:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 3v18M17 3v18M3 8h4M3 16h4M17 8h4M17 16h4"/></svg>'
 };
 const artists=[...new Set(CLIPS.flatMap(c=>c.a.split(' & ')).concat(SNIPPETS.map(x=>x.a)))];
-const BTS=CLIPS.filter(c=>c.bts).flatMap(c=>c.bts.map((i,k)=>({img:`m/b${i}.jpg`,vid:(typeof i=="number"?`m/b${i}.mp4`:""),t:c.t,a:'Backstage · '+c.a})));
+const BTS=CLIPS.filter(c=>c.bts).concat(EXTRA_BTS).flatMap(c=>c.bts.map((i,k)=>({img:`m/b${i}.jpg`,vid:(typeof i=="number"?`m/b${i}.mp4`:""),t:c.t,a:'Backstage · '+c.a})));
 const snSorted=a=>SNIPPETS.filter(x=>a==='Barchasi'||x.a===a).slice().sort((x,y)=>(y.d||'').localeCompare(x.d||''));
 const SEC={
  clip:{n:'Clip',sub:()=>`${CLIPS.length} ta musiqiy klip`,items:()=>CLIPS.map(c=>({img:yt(c.yt),t:c.t,a:c.a,chips:[[I.user,c.a],[I.cal,sana(c.d)],[I.film,'Director · Producer']],open:()=>openYT(c.yt,c.t,c.a)}))},

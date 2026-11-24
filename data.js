@@ -118,3 +118,5 @@ const SAYRO=[
  {e:3,a:"Gulyora",t:"Unutolsam",id:"3UrF-eezAhE"},
  {e:2,a:"Bilol",t:"Sevgimiz",id:"yCXzOAJE23I"},
  {e:1,a:"Askarov Toxir",t:"Unuta olaman",id:"HQ8lhNbJU6M"}];
+
+const EXTRA_BTS=[{a:"Sayro",t:"Sayro Project",bts:[30,31,32,33,34,35,36]}];

@@ -179,7 +179,7 @@ const card=({img,tag,sm,t,on,vid,num})=>{const b=el(on?'button':'figure','card r
  SAYRO.forEach(p=>g.appendChild(card({img:yt(p.id),num:'EP '+pad(p.e),tag:p.a,sm:'Episode '+pad(p.e),t:p.t,on:()=>openYT(p.id,p.t,p.a)})));s.appendChild(g)}
 
 /* BACKSTAGE */
-{const B=CLIPS.filter(c=>c.bts);const n=B.reduce((a,c)=>a+c.bts.length,0);
+{const B=CLIPS.filter(c=>c.bts).concat(EXTRA_BTS);const n=B.reduce((a,c)=>a+c.bts.length,0);
  const s=sec('backstage','Backstage','Sahna ortidan. Ijrochi bo‘yicha tanlang.',pad(n));const g=el('div','grid g3');
  const meta=s.querySelector('.meta');const ch=el('div','chips'+' mono');meta.appendChild(ch);
  const all=[];B.forEach(c=>c.bts.forEach(i=>{const x=card({img:`m/b${i}.jpg`,vid:(typeof i=="number"?`m/b${i}.mp4`:""),tag:c.a,sm:'Backstage',t:c.t});x.dataset.a=c.a;all.push(x);g.appendChild(x)}));s.appendChild(g);
