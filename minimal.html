@@ -136,10 +136,12 @@ const card=({img,tag,sm,t,on,vid})=>{const b=el(on?'button':'figure','card rv');
 {const B=CLIPS.filter(c=>c.bts).concat(EXTRA_BTS);const n=B.reduce((a,c)=>a+c.bts.length,0);
  const s=sec('backstage','Backstage','Sahna ortidan. Ijrochi bo‘yicha tanlang.',pad(n));const g=el('div','grid g3');
  const meta=s.querySelector('.meta');const ch=el('div','chips'+'');meta.appendChild(ch);
- const all=[];B.forEach(c=>c.bts.forEach(i=>{const x=card({img:`m/b${i}.jpg`,vid:(typeof i=="number"?`m/b${i}.mp4`:""),tag:c.a,sm:'Backstage',t:c.t});x.dataset.a=c.a;all.push(x);g.appendChild(x)}));s.appendChild(g);
+ const all=[];B.forEach(c=>c.bts.forEach(i=>{const x=card({img:`m/b${i}.jpg`,vid:(typeof i=="number"?`m/b${i}.mp4`:""),tag:c.a,sm:'Backstage',t:c.t});x.dataset.a=c.a;all.push(x);g.appendChild(x)}));s.appendChild(g);const more=el('button','more','Yana ko‘rsatish');more.type='button';s.appendChild(more);
+ const cols=()=>Math.max(1,getComputedStyle(g).gridTemplateColumns.split(' ').length);let shown=0;
  const arts=[...new Set(B.flatMap(c=>c.a.split(' & ')))];let cur='Barchasi';
- const draw=()=>{let k=0;all.forEach(x=>{const on=cur==='Barchasi'||x.dataset.a.split(' & ').includes(cur);x.hidden=!on;if(on){k++;x.classList.add('in')}});s.querySelector('.meta b').textContent=pad(k)};
- ['Barchasi',...arts].forEach(a=>{const b=el('button');b.type='button';b.textContent=a;b.setAttribute('aria-pressed',a===cur);b.onclick=()=>{cur=a;ch.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};ch.appendChild(b)});}
+ const draw=()=>{if(!shown)shown=cols()*2;let k=0;all.forEach(x=>{const on=cur==='Barchasi'||x.dataset.a.split(' & ').includes(cur);if(on)k++;x.hidden=!on||k>shown;if(on&&k<=shown)x.classList.add('in')});more.hidden=k<=shown;s.querySelector('.meta b').textContent=pad(k)};
+ more.onclick=()=>{shown+=cols()*2;draw()};
+ ['Barchasi',...arts].forEach(a=>{const b=el('button');b.type='button';b.textContent=a;b.setAttribute('aria-pressed',a===cur);b.onclick=()=>{cur=a;shown=0;ch.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};ch.appendChild(b)});draw();}
 
 /* HAQIDA */
 {const arts=[...new Set(CLIPS.flatMap(c=>c.a.split(' & ')).concat(SNIPPETS.map(x=>x.a)))];
