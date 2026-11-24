@@ -3,7 +3,7 @@ const CLIPS=[
  {a:"G'aybulla Tursunov & Jasmin",t:"Istayman",n:"07",yt:"-mAHrkAxVw8",d:"2026-01-07",bts:[19,20,21,"p11"]},
  {a:"G'aybulla Tursunov",t:"Kelmadi",n:"09",yt:"m8L46enT6kE",d:"2026-02-27",bts:[16,17,18]},
  {a:"Gulyora",t:"Menday qizni",n:"04",yt:"wLBPql4ouzo",d:"2026-08-14",bts:[9,10,"p1","p2","p3","p4","p5","p6","p7"]},
- {a:"Gulyora",t:"Sensiz",n:"05",yt:"uavG5tUv3Yg",d:"2026-10-03"},
+ {a:"Gulyora",t:"Sensiz",n:"05",yt:"uavG5tUv3Yg",d:"2026-10-03",bts:[26,27,28,29]},
  {a:"Askarov Toxir",t:"Kuz",n:"08",yt:"AkTEkgZe81Q",d:"2025-11-23"},
  {a:"Askarov Toxir",t:"Telbaday",yt:"oeAcAqxUhqU",d:"2025-11-05"},
  {a:"Cuba",t:"Ey hayot",n:"06",yt:"IyTQTsj8Wnc",d:"2025-10-24"},
