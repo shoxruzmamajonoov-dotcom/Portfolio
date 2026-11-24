@@ -233,7 +233,7 @@ function layout(){const M=S.length;S.forEach((d,i)=>{const k=(i-off+M*99)%M; // 
 layout();setInterval(()=>{off=(off+1)%S.length;layout()},2200);
 
 /* index deck */
-const idxT=document.getElementById('idxT');const SECS=[["clip","Clip",CLIPS.length],["snippet","Snippet",SNIPPETS.length],["project","Project",SAYRO.length],["backstage","Backstage",6],["haqida","Haqida",null]];
+const idxT=document.getElementById('idxT');const SECS=[["clip","Clip",CLIPS.length],["snippet","Snippet",SNIPPETS.length],["project","Project",SAYRO.length],["backstage","Backstage",CLIPS.reduce((s,c)=>s+(c.bts?c.bts.length:0),0)],["haqida","Haqida",null]];
 const dk=document.getElementById('deckIdx');
 SECS.forEach(([id,n,c],i)=>{const b=el('a','hc',`<span>${pad(i+1)}</span><b>${n}</b><small>${c!=null?pad(c)+' ta':'—'}</small>`);b.href='#'+id;
  b.addEventListener('mouseenter',()=>idxT.textContent=n);b.addEventListener('focus',()=>idxT.textContent=n);

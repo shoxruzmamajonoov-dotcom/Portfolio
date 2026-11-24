@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Shoxruz Mamadzhanov</title>
+<meta name="description" content="Shoxruz Mamadzhanov — Director · Producer. Musiqiy kliplar, snippetlar, loyihalar.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#111;--bg2:#1c1c1c;--ink:#ededea;--mute:#8d8d88;--dim:#5c5c58;--line:rgba(255,255,255,.12);--g:clamp(16px,3vw,64px)}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip;background:var(--bg)}
+body{color:var(--ink);font-family:Inter,system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;background:radial-gradient(120% 70% at 50% 0%,#2b2b2a 0%,#171717 45%,#0e0e0e 100%) fixed,var(--bg);min-height:100vh}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img,video{display:block;width:100%;height:100%;object-fit:cover}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.wrap{padding:0 var(--g)}
+/* film grain + vignette */
+body::before{content:"";position:fixed;inset:-50%;z-index:90;pointer-events:none;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:gr 1s steps(4) infinite}
+body::after{content:"";position:fixed;inset:0;z-index:89;pointer-events:none;background:radial-gradient(ellipse at 50% 40%,transparent 55%,rgba(0,0,0,.55) 100%)}
+@keyframes gr{0%{transform:translate(0,0)}25%{transform:translate(-5%,3%)}50%{transform:translate(4%,-4%)}75%{transform:translate(-3%,-2%)}100%{transform:translate(2%,5%)}}
+/* nav */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;mix-blend-mode:difference}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+.logo{font-family:Anton,sans-serif;font-size:18px;letter-spacing:.04em}
+nav ul{display:flex;gap:clamp(12px,2vw,28px);list-style:none}
+nav ul a{opacity:.8}nav ul a:hover{opacity:1}
+@media(max-width:720px){nav ul li:not(.k){display:none}}
+/* hero */
+.hero{min-height:100svh;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:clamp(20px,4vw,60px);padding:90px var(--g) clamp(28px,4vw,56px);position:relative}
+.hero h1{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;line-height:.84;font-size:clamp(64px,10.6vw,300px);letter-spacing:-.005em}
+.hero h1 span{display:block}
+.hero h1 .o{-webkit-text-stroke:1.5px var(--ink);color:transparent}
+.hero .lab{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:clamp(16px,2vw,28px);color:var(--mute)}
+.hero .lab b{color:var(--ink);font-weight:500}
+.vf{position:relative;width:clamp(200px,22vw,420px);aspect-ratio:9/16;background:#0b0b0b;overflow:hidden;filter:contrast(1.05)}
+.vf video{filter:grayscale(1)}
+.vf i{position:absolute;width:22px;height:22px;border:1.5px solid rgba(255,255,255,.85)}
+.vf i:nth-of-type(1){top:12px;left:12px;border-right:0;border-bottom:0}.vf i:nth-of-type(2){top:12px;right:12px;border-left:0;border-bottom:0}
+.vf i:nth-of-type(3){bottom:12px;left:12px;border-right:0;border-top:0}.vf i:nth-of-type(4){bottom:12px;right:12px;border-left:0;border-top:0}
+.vf .rec{position:absolute;top:18px;left:44px;display:flex;align-items:center;gap:7px;color:#fff}
+.vf .rec::before{content:"";width:7px;height:7px;border-radius:50%;background:#e33;animation:bl 1.2s steps(2) infinite}
+.vf .tc{position:absolute;bottom:18px;left:44px;color:#fff}
+.vf .fmt{position:absolute;top:18px;right:44px;color:#fff;opacity:.8}
+@keyframes bl{50%{opacity:0}}
+@media(max-width:760px){.hero{grid-template-columns:1fr;align-items:start;padding-top:80px}.vf{width:100%;max-width:340px;order:-1;justify-self:end;aspect-ratio:4/5}.hero h1{font-size:clamp(44px,14.2vw,110px)}}
+/* section heads */
+.sh{display:grid;grid-template-columns:1fr minmax(200px,clamp(280px,20vw,420px));align-items:end;gap:24px;padding:clamp(90px,12vw,180px) 0 clamp(20px,3vw,36px);border-bottom:1px solid var(--line)}
+.sh h2{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(64px,12vw,300px);line-height:.84;display:flex;align-items:flex-start;gap:.12em}
+.sh h2 sup{font-family:"JetBrains Mono",monospace;font-size:max(11px,.85vw);letter-spacing:.06em;color:var(--mute);margin-top:.9em}
+.sh p{font-size:14px;line-height:1.5;color:var(--mute);padding-bottom:.6em}
+@media(max-width:720px){.sh{grid-template-columns:1fr}}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;padding:18px 0 26px;color:var(--mute)}
+/* grids/cards */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(36px,5vw,72px) clamp(10px,1vw,16px)}
+.g4{grid-template-columns:repeat(4,1fr);gap:clamp(28px,4vw,48px) clamp(8px,.8vw,14px)}
+.g3{grid-template-columns:repeat(3,1fr)}
+@media(min-width:1600px){.grid{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(6,1fr)}.g3{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:900px){.g4,.g3{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.grid{gap:30px 10px}}
+.card{display:block;text-align:left;width:100%}
+.card .im{position:relative;aspect-ratio:16/9;overflow:hidden;background:#1a1a1a}
+.g4 .im,.g3 .im{aspect-ratio:4/5}
+.card img,.card video{filter:grayscale(1) contrast(1.08) brightness(.92);transition:filter .6s,transform 1s cubic-bezier(.2,.7,.2,1)}
+button.card:hover img,button.card:focus-visible img{filter:none;transform:scale(1.03)}
+.card video{position:absolute;inset:0;opacity:0;transition:opacity .4s,filter .6s}
+.card video.on{opacity:1}
+.card .num{position:absolute;top:10px;left:12px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.6)}
+.card .tag{position:absolute;right:10px;bottom:10px;padding:5px 9px;background:rgba(10,10,10,.7);backdrop-filter:blur(6px);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.card .pl{position:absolute;inset:0;display:grid;place-items:center;opacity:0;transition:opacity .4s}
+.card .pl::before{content:"▶  Ko‘rish";font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.1em;padding:9px 14px;border:1px solid #fff;color:#fff;background:rgba(0,0,0,.35)}
+button.card:hover .pl{opacity:1}
+.card .sm{margin-top:12px;color:var(--mute)}
+.card h3{margin-top:6px;padding-bottom:12px;border-bottom:1px solid var(--line);font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(20px,2vw,34px);line-height:1.05;letter-spacing:.01em}
+.g4 .card h3{font-size:clamp(15px,1.3vw,22px);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.g4 .tag{font-size:10px;padding:4px 7px}
+@media(max-width:560px){.card h3{font-size:16px}.card .sm{font-size:10px}.card .tag{font-size:9px;padding:3px 6px;right:6px;bottom:6px}}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chips button{padding:8px 12px;border:1px solid var(--line);color:var(--mute)}
+.chips button[aria-pressed=true]{background:var(--ink);color:#111;border-color:var(--ink)}
+.more{display:block;margin:clamp(36px,5vw,60px) auto 0;padding:14px 26px;border:1px solid var(--ink)}
+.more:hover{background:var(--ink);color:#111}
+/* haqida */
+.ab{display:grid;grid-template-columns:minmax(240px,clamp(300px,30vw,560px)) 1fr;gap:clamp(24px,5vw,90px);padding-top:clamp(28px,4vw,56px);align-items:start}
+.ab .vf{width:100%}
+.ab .big{font-family:Anton,sans-serif;font-size:clamp(90px,14vw,320px);line-height:.85}
+.ab .big small{display:block;font-family:Inter,sans-serif;font-size:15px;line-height:1.5;color:var(--mute);margin-top:14px;max-width:360px}
+.ab .txt{font-size:clamp(17px,1.5vw,24px);line-height:1.45;font-weight:300;max-width:640px;margin-top:clamp(24px,3vw,40px)}
+.rows{margin-top:clamp(24px,3vw,40px)}
+.rows div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-top:1px solid var(--line);font-size:15px}
+.rows span{color:var(--mute)}
+.rows b{font-weight:500;text-align:right}
+.ct{margin-top:clamp(30px,4vw,56px);display:grid;gap:10px}
+.ct span{color:var(--mute)}
+.ct a{font-family:Anton,sans-serif;font-size:clamp(36px,5vw,96px);line-height:1;text-transform:uppercase;display:inline-block;transition:opacity .3s}
+.ct a:hover{opacity:.6}
+@media(max-width:760px){.ab{grid-template-columns:1fr}.ab .vf{aspect-ratio:9/16;max-width:420px}}
+footer{margin-top:clamp(90px,12vw,170px);border-top:1px solid var(--line)}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:30px;color:var(--mute)}
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}body::before{animation:none}html{scroll-behavior:auto}}
+/* lightbox */
+#lb{position:fixed;inset:0;z-index:95;background:rgba(8,8,8,.94);display:flex;align-items:center;justify-content:center;padding:70px 16px 24px}
+#lbX{position:absolute;top:16px;right:var(--g);padding:9px 14px;border:1px solid var(--ink)}
+#lbT{position:absolute;top:24px;left:var(--g);max-width:60vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#lbT span{color:var(--mute);margin-left:10px}
+.fr{width:min(1150px,100%);aspect-ratio:16/9;background:#000}
+.fr.v{width:min(400px,100%);aspect-ratio:auto;height:min(760px,calc(100vh - 110px));background:#fff}
+.fr iframe{width:100%;height:100%;border:0;display:block}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><a class="logo" href="#top">SM</a>
+<ul class="mono"><li><a href="#clip">Clip</a></li><li><a href="#snippet">Snippet</a></li><li><a href="#project">Project</a></li><li><a href="#backstage">Backstage</a></li><li class="k"><a href="#haqida">Haqida</a></li></ul></div></nav>
+
+<header class="hero" id="top">
+ <div>
+  <div class="lab mono rv"><span><b>Director</b> · Producer</span><span>Toshkent</span><span id="hc"></span></div>
+  <h1 class="rv"><span>Shoxruz</span><span class="o">Mamadzhanov</span></h1>
+ </div>
+ <div class="vf rv"><video src="m/haqida.mp4" poster="m/haqida.jpg" muted loop playsinline autoplay preload="metadata"></video><i></i><i></i><i></i><i></i><span class="rec mono">Rec</span><span class="fmt mono">4K · 50</span><span class="tc mono" id="tc">00:00:00:00</span></div>
+</header>
+
+<main class="wrap" id="main"></main>
+
+<footer><div class="wrap mono"><span>Shoxruz Mamadzhanov · Director · Producer</span><span><a href="tel:+998942377572">+998 94 237 75 72</a> · <a href="https://www.instagram.com/shvxrvz/" target="_blank" rel="noopener">@shvxrvz</a></span></div></footer>
+
+<div id="lb" hidden role="dialog" aria-modal="true" aria-label="Video"><div id="lbT" class="mono"></div><button id="lbX" class="mono" type="button">Yopish ✕</button><div class="fr" id="fr"></div></div>
+
+<script>document.write('<script src="data.js?'+Date.now()+'"><\/script>')</script>
+<script>
+const pad=n=>String(n).padStart(2,'0');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e};
+const yt=id=>`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`;
+const main=document.getElementById('main');
+const artists=[...new Set(CLIPS.flatMap(c=>c.a.split(' & ')).concat(SNIPPETS.map(x=>x.a)))];
+document.getElementById('hc').textContent=`${CLIPS.length} klip · ${artists.length} ijrochi`;
+const sec=(id,title,desc,count)=>{const s=el('section');s.id=id;s.innerHTML=`<div class="sh"><h2 class="rv">${title}<sup>(${count})</sup></h2><p class="rv">${desc}</p></div><div class="meta mono"><span>Items: <b>${count}</b></span></div>`;main.appendChild(s);return s};
+const card=({img,tag,sm,t,on,vid,num})=>{const b=el(on?'button':'figure','card rv');if(on)b.type='button';
+ b.innerHTML=`<div class="im"><img src="${img}" alt="" loading="lazy">${vid?`<video data-src="${vid}" muted loop playsinline preload="none"></video>`:''}${num?`<span class="num mono">${num}</span>`:''}${tag?`<span class="tag mono">${esc(tag)}</span>`:''}${on?'<span class="pl"></span>':''}</div><div class="sm mono">${esc(sm||'')}</div><h3>${esc(t)}</h3>`;
+ if(on)b.addEventListener('click',on);return b};
+
+/* CLIP */
+{const s=sec('clip','Clips','Musiqiy kliplar. Rejissyor va prodyuser sifatida, yangisi birinchi.',pad(CLIPS.length));const g=el('div','grid');
+ CLIPS.forEach((c,i)=>g.appendChild(card({img:yt(c.yt),num:pad(i+1),tag:c.a,sm:sana(c.d),t:c.t,on:()=>openYT(c.yt,c.t,c.a)})));s.appendChild(g)}
+
+/* SNIPPET */
+{const s=sec('snippet','Snippets','Instagram reels. Ijrochi bo‘yicha tanlang.',pad(SNIPPETS.length));
+ const arts=[...new Set(SNIPPETS.map(x=>x.a))];const meta=s.querySelector('.meta');const ch=el('div','chips mono');meta.appendChild(ch);
+ const g=el('div','grid g4');s.appendChild(g);const more=el('button','more mono','Yana ko‘rsatish');more.type='button';s.appendChild(more);
+ let cur='Barchasi',shown=12;
+ const list=()=>(cur==='Barchasi'?SNIPPETS:SNIPPETS.filter(x=>x.a===cur)).slice().sort((x,y)=>(y.d||'').localeCompare(x.d||''));
+ const draw=()=>{const L=list();g.innerHTML='';L.slice(0,shown).forEach(x=>{const c=card({img:`m/ig/${x.ig}.webp`,tag:x.v?'▶ '+x.v:'',sm:x.a+' · '+sana(x.d),t:x.t,on:()=>openIG(x.ig,x.t,x.a)});c.classList.add('in');g.appendChild(c)});more.hidden=L.length<=shown;s.querySelector('.meta b').textContent=pad(L.length)};
+ ['Barchasi',...arts].forEach(a=>{const b=el('button');b.type='button';b.textContent=a;b.setAttribute('aria-pressed',a===cur);b.onclick=()=>{cur=a;shown=12;ch.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};ch.appendChild(b)});
+ more.onclick=()=>{shown+=12;draw()};draw()}
+
+/* PROJECT */
+{const s=sec('project','Sayro','Sayro Project · YouTube. Har bir epizod alohida ijrochi bilan.',pad(SAYRO.length));const g=el('div','grid');
+ SAYRO.forEach(p=>g.appendChild(card({img:yt(p.id),num:'EP '+pad(p.e),tag:p.a,sm:'Episode '+pad(p.e),t:p.t,on:()=>openYT(p.id,p.t,p.a)})));s.appendChild(g)}
+
+/* BACKSTAGE */
+{const B=CLIPS.filter(c=>c.bts);const n=B.reduce((a,c)=>a+c.bts.length,0);
+ const s=sec('backstage','Backstage','Sahna ortidan.',pad(n));const g=el('div','grid g3');
+ B.forEach(c=>c.bts.forEach((i,k)=>g.appendChild(card({img:`m/b${i}.jpg`,vid:`m/b${i}.mp4`,tag:c.a,sm:c.t,t:'Backstage '+pad(k+1)}))));s.appendChild(g)}
+
+/* HAQIDA */
+{const s=el('section');s.id='haqida';s.innerHTML=`<div class="sh"><h2 class="rv">Haqida</h2><p class="rv">Shoxruz Mamadzhanov. Rejissyor va prodyuser.</p></div>
+ <div class="ab">
+  <div class="vf rv"><video data-src="m/haqida.mp4" poster="m/haqida.jpg" muted loop playsinline preload="none"></video><i></i><i></i><i></i><i></i><span class="rec mono">Rec</span><span class="tc mono" id="tc2">00:00:00:00</span></div>
+  <div>
+   <div class="big rv">15+<small>musiqiy klip — rejissyor va prodyuser sifatida.</small></div>
+   <div class="rows rv"><div><span>Rol</span><b>Director · Producer</b></div><div><span>Ijrochilar</span><b>${artists.map(esc).join(', ')}</b></div><div><span>Loyiha</span><b>Sayro Project</b></div><div><span>Ish</span><b>Musiqiy klip · Snippet</b></div></div>
+   <div class="ct rv"><span class="mono">Hamkorlik uchun</span><a href="tel:+998942377572">+998 94 237 75 72</a><a href="https://www.instagram.com/shvxrvz/" target="_blank" rel="noopener">@shvxrvz</a></div>
+  </div>
+ </div>`;main.appendChild(s)}
+
+/* reveal */
+const rio=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rio.unobserve(e.target)}}),{rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.rv').forEach(x=>rio.observe(x));
+const vio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){if(!v.src&&v.dataset.src)v.src=v.dataset.src;const p=v.play();if(p)p.then(()=>v.classList.add('on')).catch(()=>{})}else v.pause()}),{rootMargin:'120px'});
+document.querySelectorAll('video').forEach(v=>vio.observe(v));
+/* timecode */
+const tcs=[...document.querySelectorAll('.vf')].map(f=>[f.querySelector('video'),f.querySelector('.tc')]);
+const tcf=t=>{const f=Math.floor(t*25)%25,s=Math.floor(t);return`00:${pad(Math.floor(s/60)%60)}:${pad(s%60)}:${pad(f)}`};
+(function loop(){tcs.forEach(([v,t])=>{if(v&&t&&!v.paused)t.textContent=tcf(v.currentTime)});requestAnimationFrame(loop)})();
+/* lightbox */
+const lb=document.getElementById('lb'),fr=document.getElementById('fr'),lbT=document.getElementById('lbT');let last=null;
+function show(t,sub,html,vert){last=document.activeElement;lbT.innerHTML=esc(t)+(sub?`<span>${esc(sub)}</span>`:'');fr.className='fr'+(vert?' v':'');fr.innerHTML=html;lb.hidden=false;document.body.style.overflow='hidden';document.getElementById('lbX').focus()}
+function openYT(id,t,a){show(t,a,`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="${esc(t)}"></iframe>`)}
+function openIG(id,t,a){show(t,a,`<iframe src="https://www.instagram.com/reel/${id}/embed/" allow="autoplay; encrypted-media" title="${esc(t)}"></iframe>`,1)}
+function closeLB(){fr.innerHTML='';lb.hidden=true;document.body.style.overflow='';if(last)last.focus()}
+document.getElementById('lbX').onclick=closeLB;lb.addEventListener('click',e=>{if(e.target===lb)closeLB()});addEventListener('keydown',e=>{if(e.key==='Escape'&&!lb.hidden)closeLB()});
+</script>
+</body>
+</html>
