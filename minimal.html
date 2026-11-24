@@ -137,8 +137,8 @@ const card=({img,tag,sm,t,on,vid})=>{const b=el(on?'button':'figure','card rv');
  const s=sec('backstage','Backstage','Sahna ortidan. Ijrochi bo‘yicha tanlang.',pad(n));const g=el('div','grid g3');
  const meta=s.querySelector('.meta');const ch=el('div','chips'+'');meta.appendChild(ch);
  const all=[];B.forEach(c=>c.bts.forEach(i=>{const x=card({img:`m/b${i}.jpg`,vid:(typeof i=="number"?`m/b${i}.mp4`:""),tag:c.a,sm:'Backstage',t:c.t});x.dataset.a=c.a;all.push(x);g.appendChild(x)}));s.appendChild(g);
- const arts=[...new Set(B.map(c=>c.a))];let cur='Barchasi';
- const draw=()=>{let k=0;all.forEach(x=>{const on=cur==='Barchasi'||x.dataset.a===cur;x.hidden=!on;if(on){k++;x.classList.add('in')}});s.querySelector('.meta b').textContent=pad(k)};
+ const arts=[...new Set(B.flatMap(c=>c.a.split(' & ')))];let cur='Barchasi';
+ const draw=()=>{let k=0;all.forEach(x=>{const on=cur==='Barchasi'||x.dataset.a.split(' & ').includes(cur);x.hidden=!on;if(on){k++;x.classList.add('in')}});s.querySelector('.meta b').textContent=pad(k)};
  ['Barchasi',...arts].forEach(a=>{const b=el('button');b.type='button';b.textContent=a;b.setAttribute('aria-pressed',a===cur);b.onclick=()=>{cur=a;ch.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};ch.appendChild(b)});}
 
 /* HAQIDA */
