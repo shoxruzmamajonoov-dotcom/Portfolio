@@ -6,7 +6,7 @@
 <title>Shoxruz Mamadzhanov</title>
 <meta name="description" content="Shoxruz Mamadzhanov — Director · Producer. Musiqiy kliplar, snippetlar, loyihalar.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#111;--bg2:#1c1c1c;--ink:#ededea;--mute:#8d8d88;--dim:#5c5c58;--line:rgba(255,255,255,.12);--g:clamp(16px,3vw,64px)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -27,8 +27,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:50;mix-blend-mode:difference}
 nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
 .logo{font-family:Anton,sans-serif;font-size:18px;letter-spacing:.04em}
 nav ul{display:flex;gap:clamp(12px,2vw,28px);list-style:none}
-nav ul a{opacity:.8}nav ul a:hover{opacity:1}
-@media(max-width:720px){nav ul li:not(.k){display:none}}
+nav ul a{opacity:.8;white-space:nowrap}nav ul a:hover{opacity:1}
+nav ul li+li::before{content:"•";margin-right:clamp(12px,2vw,28px);opacity:.5}
+@media(max-width:720px){nav ul{gap:7px;font-size:10.5px;letter-spacing:.06em}nav ul li+li::before{margin-right:7px}}
 /* hero */
 .hero{min-height:100svh;display:grid;grid-template-columns:auto minmax(0,1fr);align-items:center;gap:clamp(28px,5vw,96px);padding:84px var(--g) 40px;position:relative}
 .hero .vf{width:auto;height:calc(100svh - 124px);max-height:1100px;min-height:480px;aspect-ratio:9/16}
@@ -41,9 +42,9 @@ nav ul a{opacity:.8}nav ul a:hover{opacity:1}
 .hk span{width:100%;color:var(--mute);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
 .hk a{font-family:Anton,sans-serif;font-size:clamp(24px,2.3vw,42px);text-transform:uppercase;color:var(--ink);text-decoration:none}
 .hk a:hover{opacity:.6}
-.hero h1{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;line-height:.84;font-size:clamp(56px,7.6vw,210px);letter-spacing:-.005em}
+.hero h1{font-family:'Instrument Serif',serif;font-weight:400;line-height:.86;font-size:clamp(60px,8.6vw,240px);letter-spacing:-.02em}
 .hero h1 span{display:block}
-.hero h1 .o{-webkit-text-stroke:1.5px var(--ink);color:transparent}
+.hero h1 .o{font-style:italic;color:var(--ink);opacity:.75}
 .hero .lab{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:clamp(16px,2vw,28px);color:var(--mute)}
 .hero .lab b{color:var(--ink);font-weight:500}
 .vf{position:relative;width:clamp(200px,22vw,420px);aspect-ratio:9/16;background:#0b0b0b;overflow:hidden;filter:contrast(1.05)}
@@ -56,7 +57,7 @@ nav ul a{opacity:.8}nav ul a:hover{opacity:1}
 .vf .tc{position:absolute;bottom:18px;left:44px;color:#fff}
 .vf .fmt{position:absolute;top:18px;right:44px;color:#fff;opacity:.8}
 @keyframes bl{50%{opacity:0}}
-@media(max-width:860px){.hero{grid-template-columns:1fr;align-items:start;padding-top:76px}.hero .vf{width:100%;height:auto;min-height:0;aspect-ratio:9/14}.hero h1{font-size:clamp(44px,14.2vw,110px)}.hf b{font-size:44px}}
+@media(max-width:860px){.hero{grid-template-columns:1fr;align-items:start;padding-top:76px}.hero .vf{width:100%;height:auto;min-height:0;aspect-ratio:9/14}.hero h1{font-size:clamp(48px,17vw,130px)}.hf b{font-size:44px}}
 /* section heads */
 .sh{display:grid;grid-template-columns:1fr minmax(200px,clamp(280px,20vw,420px));align-items:end;gap:24px;padding:clamp(90px,12vw,180px) 0 clamp(20px,3vw,36px);border-bottom:1px solid var(--line)}
 .sh h2{font-family:Anton,sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(64px,12vw,300px);line-height:.84;display:flex;align-items:flex-start;gap:.12em}
@@ -128,7 +129,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
 </head>
 <body>
 <nav><div class="wrap"><a class="logo" href="#top">SM</a>
-<ul class="mono"><li><a href="#clip">Clip</a></li><li><a href="#snippet">Snippet</a></li><li><a href="#project">Project</a></li><li><a href="#backstage">Backstage</a></li><li class="k"><a href="#haqida">Haqida</a></li></ul></div></nav>
+<ul class="mono"><li><a href="#clip">Clip</a></li><li><a href="#snippet">Snippet</a></li><li><a href="#backstage">Backstage</a></li><li><a href="#haqida">Men haqimda</a></li></ul></div></nav>
 
 <header class="hero" id="top">
  <div class="vf rv"><video src="m/hero.mp4" poster="m/hero.jpg" muted loop playsinline autoplay preload="metadata"></video><i></i><i></i><i></i><i></i><span class="rec mono">Rec</span><span class="fmt mono">4K · 50</span><span class="tc mono" id="tc">00:00:00:00</span></div>
