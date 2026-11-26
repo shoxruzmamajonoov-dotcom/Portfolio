@@ -162,23 +162,27 @@ const card=({img,tag,sm,t,on,vid,num})=>{const b=el(on?'button':'figure','card r
  b.innerHTML=`<div class="im"><img src="${img}" alt="" loading="lazy">${vid?`<video data-src="${vid}" muted loop playsinline preload="none"></video>`:''}${num?`<span class="num mono">${num}</span>`:''}${tag?`<span class="tag mono">${esc(tag)}</span>`:''}${on?'<span class="pl"></span>':''}</div><div class="sm mono">${esc(sm||'')}</div><h3>${esc(t)}</h3>`;
  if(on)b.addEventListener('click',on);return b};
 
+const ROWS=()=>matchMedia('(max-width:760px)').matches?1:2;
+const colsOf=g=>Math.max(1,getComputedStyle(g).gridTemplateColumns.split(' ').length);
+const limit=(s,g)=>{const kids=[...g.children];const more=el('button','more mono','Yana ko‘rsatish');more.type='button';s.appendChild(more);let shown=colsOf(g)*ROWS();
+ const draw=()=>{kids.forEach((x,i)=>{x.hidden=i>=shown;if(i<shown)x.classList.add('in')});more.hidden=kids.length<=shown};more.onclick=()=>{shown+=colsOf(g)*ROWS();draw()};draw()};
 /* CLIP */
 {const s=sec('clip','Clips','Musiqiy kliplar. Rejissyor va prodyuser sifatida, yangisi birinchi.',pad(CLIPS.length));const g=el('div','grid');
- CLIPS.forEach((c,i)=>g.appendChild(card({img:yt(c.yt),num:pad(i+1),tag:c.a,sm:sana(c.d),t:c.t,on:()=>openYT(c.yt,c.t,c.a)})));s.appendChild(g)}
+ CLIPS.forEach((c,i)=>g.appendChild(card({img:yt(c.yt),num:pad(i+1),tag:c.a,sm:sana(c.d),t:c.t,on:()=>openYT(c.yt,c.t,c.a)})));s.appendChild(g);limit(s,g)}
 
 /* SNIPPET */
 {const s=sec('snippet','Snippets','Instagram reels. Ijrochi bo‘yicha tanlang.',pad(SNIPPETS.length));
  const arts=[...new Set(SNIPPETS.map(x=>x.a))];const meta=s.querySelector('.meta');const ch=el('div','chips mono');meta.appendChild(ch);
  const g=el('div','grid g4');s.appendChild(g);const more=el('button','more mono','Yana ko‘rsatish');more.type='button';s.appendChild(more);
- let cur='Barchasi',shown=12;
+ let cur='Barchasi',shown=0;
  const list=()=>(cur==='Barchasi'?SNIPPETS:SNIPPETS.filter(x=>x.a===cur)).slice().sort((x,y)=>(y.d||'').localeCompare(x.d||''));
- const draw=()=>{const L=list();g.innerHTML='';L.slice(0,shown).forEach(x=>{const c=card({img:`m/ig/${x.ig}.webp`,tag:x.v?'▶ '+x.v:'',sm:x.a+' · '+sana(x.d),t:x.t,on:()=>openIG(x.ig,x.t,x.a)});c.classList.add('in');g.appendChild(c)});more.hidden=L.length<=shown;s.querySelector('.meta b').textContent=pad(L.length)};
- ['Barchasi',...arts].forEach(a=>{const b=el('button');b.type='button';b.textContent=a;b.setAttribute('aria-pressed',a===cur);b.onclick=()=>{cur=a;shown=12;ch.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};ch.appendChild(b)});
- more.onclick=()=>{shown+=12;draw()};draw()}
+ const draw=()=>{if(!shown)shown=colsOf(g)*ROWS();const L=list();g.innerHTML='';L.slice(0,shown).forEach(x=>{const c=card({img:`m/ig/${x.ig}.webp`,tag:x.v?'▶ '+x.v:'',sm:x.a+' · '+sana(x.d),t:x.t,on:()=>openIG(x.ig,x.t,x.a)});c.classList.add('in');g.appendChild(c)});more.hidden=L.length<=shown;s.querySelector('.meta b').textContent=pad(L.length)};
+ ['Barchasi',...arts].forEach(a=>{const b=el('button');b.type='button';b.textContent=a;b.setAttribute('aria-pressed',a===cur);b.onclick=()=>{cur=a;shown=0;ch.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};ch.appendChild(b)});
+ more.onclick=()=>{shown+=colsOf(g)*ROWS();draw()};draw()}
 
 /* PROJECT */
 {const s=sec('project','Sayro','Sayro Project · YouTube. Har bir epizod alohida ijrochi bilan.',pad(SAYRO.length));const g=el('div','grid');
- SAYRO.forEach(p=>g.appendChild(card({img:yt(p.id),num:'EP '+pad(p.e),tag:p.a,sm:'Episode '+pad(p.e),t:p.t,on:()=>openYT(p.id,p.t,p.a)})));s.appendChild(g)}
+ SAYRO.forEach(p=>g.appendChild(card({img:yt(p.id),num:'EP '+pad(p.e),tag:p.a,sm:'Episode '+pad(p.e),t:p.t,on:()=>openYT(p.id,p.t,p.a)})));s.appendChild(g);limit(s,g)}
 
 /* BACKSTAGE */
 {const B=CLIPS.filter(c=>c.bts).concat(EXTRA_BTS);const n=B.reduce((a,c)=>a+c.bts.length,0);
@@ -187,8 +191,8 @@ const card=({img,tag,sm,t,on,vid,num})=>{const b=el(on?'button':'figure','card r
  const all=[];B.forEach(c=>c.bts.forEach(i=>{const x=card({img:`m/b${i}.jpg`,vid:(typeof i=="number"?`m/b${i}.mp4`:""),tag:c.a,sm:'Backstage',t:c.t});x.dataset.a=c.a;all.push(x);g.appendChild(x)}));s.appendChild(g);const more=el('button','more mono','Yana ko‘rsatish');more.type='button';s.appendChild(more);
  const cols=()=>Math.max(1,getComputedStyle(g).gridTemplateColumns.split(' ').length);let shown=0;
  const arts=[...new Set(B.flatMap(c=>c.a.split(' & ')))];let cur='Barchasi';
- const draw=()=>{if(!shown)shown=cols()*2;let k=0;all.forEach(x=>{const on=cur==='Barchasi'||x.dataset.a.split(' & ').includes(cur);if(on)k++;x.hidden=!on||k>shown;if(on&&k<=shown)x.classList.add('in')});more.hidden=k<=shown;s.querySelector('.meta b').textContent=pad(k)};
- more.onclick=()=>{shown+=cols()*2;draw()};
+ const draw=()=>{if(!shown)shown=cols()*ROWS();let k=0;all.forEach(x=>{const on=cur==='Barchasi'||x.dataset.a.split(' & ').includes(cur);if(on)k++;x.hidden=!on||k>shown;if(on&&k<=shown)x.classList.add('in')});more.hidden=k<=shown;s.querySelector('.meta b').textContent=pad(k)};
+ more.onclick=()=>{shown+=cols()*ROWS();draw()};
  ['Barchasi',...arts].forEach(a=>{const b=el('button');b.type='button';b.textContent=a;b.setAttribute('aria-pressed',a===cur);b.onclick=()=>{cur=a;shown=0;ch.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));draw()};ch.appendChild(b)});draw();}
 
 /* HAQIDA */
