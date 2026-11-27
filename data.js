@@ -112,6 +112,7 @@ const SNIPPETS=[
  {"a":"Omar","t":"Vachacha","ig":"DTniPp_DPrW","d":"2026-01-17","v":"1.7M"},
  {"a":"Omar","t":"Vachacha","ig":"DTvRNVGjDM4","d":"2026-01-20","v":"812K"}];
 const SAYRO=[
+ {e:7,a:"G'aybulla Tursunov",t:"Yurak uni qo'y",id:"QgJPDDXb8lY"},
  {e:6,a:"Gulyora",t:"Hamon seni sevaman",id:"uFEdfTRWKMs"},
  {e:5,a:"Bilol",t:"Balla",id:"6aS1W0_v7PA"},
  {e:4,a:"G'aybulla Tursunov & Jasmin",t:"Keraksan",id:"KlvraqaCsMY"},
